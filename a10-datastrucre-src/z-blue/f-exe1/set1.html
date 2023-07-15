@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <button onclick="f()"> start</button>
+
+        <script>
+// 1.Receive from the user address, firstname, lastname and phone number.
+// Read all the details to map with keys : address,firstname, lastname, phonenumber 
+// 2. Print the map to the console
+            function f(){
+                let address = prompt("print address")
+                let firstname = prompt("print firstname")
+                let lastname = prompt("print lastname")
+                let phonenumber = prompt("print phone number")
+                let person = new Map()
+                person.set('address',address)
+                person.set('firstname',address)
+                person.set('lastname',address)
+                person.set('phonenumber',address)
+                console.log(person)
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <button onclick="partB()">max</button>
+        <p id="max"></p>
+    </body>
+    <script>
+        function maxBetween3Numbers(n1, n2, n3) {
+            if(n1>=n2 && n1>=n3)
+                return n1;
+            else if(n2>=n2 && n2>=n3)
+                return n2;
+            return n3;
+        }
+        function partB(){
+            let n1 = parseInt(prompt("print n1"))
+            let n2 = parseInt(prompt("print n2"))
+            let n3 = parseInt(prompt("print n3"))
+            let max = maxBetween3Numbers(n1, n2, n3)
+            document.getElementById("max").innerText ="max is :" + max
+        }
+
+ 
+    </script>
+</html>

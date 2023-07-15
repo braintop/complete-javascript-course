@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <button onclick="solution6()">solution6</button>
+        <script>
+            function solution6(){
+                var num = parseInt(prompt("print num"))
+                min = num;
+                index = 0;
+                for(var i=0;i<10;i++){
+                    var num = parseInt(prompt("print num"))
+                    if(num <= min){
+                        min = num
+                        index =i;
+                    }
+                }
+                console.log(index);
+            }
+        </script>
+</body>
+</html>

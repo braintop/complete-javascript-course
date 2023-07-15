@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>add class</title>
+        <style>
+            .hidden{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <button onclick="hide()">hide paragraph</button>
+        <button onclick="show()">show paragraph</button>
+        <p class="p1">Hi,  👌🏽</p>
+        <script>
+            function show(){
+                let p1=document.querySelector(".p1").classList.remove("hidden");
+            }
+            function hide(){
+                let p1=document.querySelector(".p1").classList.add("hidden");
+            }
+
+        </script>
+        
+    </body>    
+</html>
+    
+    

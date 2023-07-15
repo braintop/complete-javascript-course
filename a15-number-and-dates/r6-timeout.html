@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <h1>set time out </h1>
+        <script>
+            let colors = function(range){
+                arr=["red","blue","green","black"]
+                let random =Math.floor(Math.random()*range)//0-4
+                console.log(random)
+                document.body.style.background=arr[random]
+            }
+            setTimeout(colors,1000,4)//calling colors after 3000 seconds
+        </script>
+    </body>
+</html>

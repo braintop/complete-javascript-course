@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <style>
+           .box{
+               width: 200px;
+               height: 200px;
+               border:1px solid green;
+           }
+       </style>
+   </head>
+   <body>
+       <button onclick="selectBackColor()">select background color</button>
+       <button onclick="selectTextColor()">select text color</button>
+
+       <div id="myDiv" class="box">
+           My name is Asaf
+       </div>
+       <script>
+        function selectBackColor(){
+            var color = prompt("select color")
+            document.getElementById("myDiv").style.backgroundColor= color
+        }
+        function selectTextColor(){
+            var color = prompt("select color")
+            document.getElementById("myDiv").style.color = color
+        }
+    </script>
+</body>
+</html>
+
+

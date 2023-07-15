@@ -1,0 +1,20 @@
+<!DOCTYPE html><html>
+    <body>
+       <h1>sum of numbers</h1>
+       <button onclick="sumOfNumbers()">compute</button>
+       <p id="sum"></p>
+       <script>
+           function sumOfNumbers(){
+               var sum = 0;
+               for(var i=0;i<5;i++){
+                   var n = prompt("print num ")
+                   n = parseInt(n)
+                   sum = sum + n
+               }
+               document.getElementById("sum").innerText = sum
+           }
+       </script>
+    </body>
+    </html>
+    
+    

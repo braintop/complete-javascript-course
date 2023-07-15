@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+   
+     
+      
+    </style>
+  </head>
+  <body> 
+
+  <header>
+    <nav id="navbar" class="">
+      <div class="nav-wrapper">
+		  <div class="logo">
+			<a href="#home"><img src="images/logo.png"></a>
+		  </div>
+
+		  <ul id="menu">
+			<li><a href="home.html">my shift</a></li>
+			<li><a href="home.html">Shifts</a></li>
+			<li><a href="addshift.html">Add Shift</a></li>
+			<li><a href="editprofile.html">Edit profile</a></li>
+		  </ul>
+			<div class="rightside">
+				<ul>
+					<li><a>Hello <span id="username"></span> </a></li>
+					<li><a href="login.html">Logout</a></li>
+			    </ul>
+			</div>
+      </div>
+    </nav>
+
+
+    <div class="menuIcon">
+      <span class="icon icon-bars"></span>
+      <span class="icon icon-bars overlay"></span>
+    </div>
+
+
+    <div class="overlay-menu">
+      <ul id="menu">
+        <li><a href="home.html">my shift</a></li>
+        <li><a href="home.html">Shifts</a></li>
+        <li><a href="addshift.html">Add Shift</a></li>
+      </ul>
+    </div>
+
+  </header>
+	<div class="main">
+		<div class="searcharea">
+			<form class="searchbox" method="get" action="">
+				<div>
+					<label>From Date</label>
+					<input type="date" id="fromdate" name="fromdate" placeholder="From date" class="filter">
+				</div>
+				<div>
+					<label>To Date</label>
+					<input type="date" id="todate" name="todate" placeholder="From date" class="filter">
+				</div>
+				<div>
+					<label>Shift Name</label>
+					<input type="text" id="shift" name="shift" placeholder="Search for names.."  class="filter" title="Type in a name">
+				</div>
+				<div>
+					<label>&nbsp;</label>
+					<input type="submit" class="submit" value="Search">
+				</div>
+			</form>
+		</div>
+		<div class="container">
+			<div class="table">
+				<table class="t-body" id="myTable">
+				  <tr class="header">
+					<th>
+					  date
+					</th>
+					<th>
+					  Beginning time
+					</th>
+					<th>
+					  End time
+					</th>
+					<th>
+					  price per hour 
+					</th>
+					<th>
+					  Shift place
+					</th>
+					<th>
+					  Total profit per shift
+					</th>
+					<th>
+					  Action
+					</th>
+				  </tr>
+				</table>
+			</div> 
+		</div>
+	</div>
+  <footer>
+    <nav id="footernav" class="footer-nav">
+      <div class="nav-wrapper">
+
+      <ul id="menu">
+        <li><a href="home.html">my shift</a></li>
+        <li><a href="home.html">Shifts</a></li>
+        <li><a href="addshift.html">Add Shift</a></li>
+      </ul>
+      </div>
+    </nav>
+  </footer>
+
+
+	<script>
+		let menuIcon = document.querySelector('.menuIcon');
+        let nav = document.querySelector('.overlay-menu');
+
+        menuIcon.addEventListener('click', () => {
+            if (nav.style.transform != 'translateX(0%)') {
+                nav.style.transform = 'translateX(0%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            } else { 
+                nav.style.transform = 'translateX(-100%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            }
+        });
+
+        let toggleIcon = document.querySelector('.menuIcon');
+
+        toggleIcon.addEventListener('click', () => {
+            if (toggleIcon.className != 'menuIcon toggle') {
+                toggleIcon.className += ' toggle';
+            }else{
+                toggleIcon.className = 'menuIcon';
+            }
+        });
+		
+		
+		var allshifts = JSON.parse(localStorage.getItem("shifts"));
+		var row = "";
+		
+		var url_string = window.location.href;
+		var url = new URL(url_string);
+		var fromdate = url.searchParams.get("fromdate");
+		var todate = url.searchParams.get("todate");
+		var shift = url.searchParams.get("shift");
+
+		for (var key in allshifts) {
+			if(fromdate !== null && todate !== null && fromdate !== "" && todate !== ""){
+				var d1 = fromdate.split("-");
+				var d2 = todate.split("-");
+				var c = allshifts[key][0].split("-");
+				var from = new Date(d1[2], parseInt(d1[1])-1, d1[0]); 
+				var to   = new Date(d2[2], parseInt(d2[1])-1, d2[0]);
+				var check = new Date(c[2], parseInt(c[1])-1, c[0]);
+				if(check > from && check < to){
+					if(shift !== null){
+						if(allshifts[key][4].includes(shift)){
+							var timeStart = new Date(allshifts[key][0] +" "+ allshifts[key][1]).getHours();
+							var timeEnd = new Date(allshifts[key][0] +" "+ allshifts[key][2]).getHours();
+							var hourDiff = timeEnd - timeStart;  
+							var totalprofit = hourDiff * allshifts[key][3];
+							row += "<tr>";
+							row += "<td>"+allshifts[key][0]+"</td>";
+							row += "<td>"+allshifts[key][1]+"</td>";
+							row += "<td>"+allshifts[key][2]+"</td>";
+							row += "<td>"+allshifts[key][3]+"</td>";
+							row += "<td>"+allshifts[key][4]+"</td>";
+							row += "<td>"+totalprofit+"</td>";
+							row += "<td><a href='addshift.html?slug="+allshifts[key][5]+"'>Edit</a></td>";
+							row += "</tr>";
+						}
+					}else{
+						var timeStart = new Date(allshifts[key][0] +" "+ allshifts[key][1]).getHours();
+						var timeEnd = new Date(allshifts[key][0] +" "+ allshifts[key][2]).getHours();
+						var hourDiff = timeEnd - timeStart;  
+						var totalprofit = hourDiff * allshifts[key][3];
+						row += "<tr>";
+						row += "<td>"+allshifts[key][0]+"</td>";
+						row += "<td>"+allshifts[key][1]+"</td>";
+						row += "<td>"+allshifts[key][2]+"</td>";
+						row += "<td>"+allshifts[key][3]+"</td>";
+						row += "<td>"+allshifts[key][4]+"</td>";
+						row += "<td>"+totalprofit+"</td>";
+						row += "<td><a href='addshift.html?slug="+allshifts[key][5]+"'>Edit</a></td>";
+						row += "</tr>";
+					}
+				}
+			}else if(shift !== null){
+				
+
+				if(allshifts[key][4].includes(shift)){
+					var timeStart = new Date(allshifts[key][0] +" "+ allshifts[key][1]).getHours();
+					var timeEnd = new Date(allshifts[key][0] +" "+ allshifts[key][2]).getHours();
+					var hourDiff = timeEnd - timeStart;  
+					var totalprofit = hourDiff * allshifts[key][3];
+					row += "<tr>";
+					row += "<td>"+allshifts[key][0]+"</td>";
+					row += "<td>"+allshifts[key][1]+"</td>";
+					row += "<td>"+allshifts[key][2]+"</td>";
+					row += "<td>"+allshifts[key][3]+"</td>";
+					row += "<td>"+allshifts[key][4]+"</td>";
+					row += "<td>"+totalprofit+"</td>";
+					row += "<td><a href='addshift.html?slug="+allshifts[key][5]+"'>Edit</a></td>";
+					row += "</tr>";
+				}
+			}else{
+				var timeStart = new Date(allshifts[key][0] +" "+ allshifts[key][1]).getHours();
+				var timeEnd = new Date(allshifts[key][0] +" "+ allshifts[key][2]).getHours();
+				var hourDiff = timeEnd - timeStart;  
+				var totalprofit = hourDiff * allshifts[key][3];
+				row += "<tr>";
+				row += "<td>"+allshifts[key][0]+"</td>";
+				row += "<td>"+allshifts[key][1]+"</td>";
+				row += "<td>"+allshifts[key][2]+"</td>";
+				row += "<td>"+allshifts[key][3]+"</td>";
+				row += "<td>"+allshifts[key][4]+"</td>";
+				row += "<td>"+totalprofit+"</td>";
+				row += "<td><a href='addshift.html?slug="+allshifts[key][5]+"'>Edit</a></td>";
+				row += "</tr>";
+			}
+		
+			
+		}
+		var d1 = document.getElementById('myTable');
+		d1.insertAdjacentHTML('beforeend', row);
+		
+		
+		
+		
+		
+		
+		
+	</script>
+  </body>
+</html>

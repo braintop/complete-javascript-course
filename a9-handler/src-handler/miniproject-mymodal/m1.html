@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {box-sizing: border-box;}
+button {
+  background-color: #aabbcc;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  cursor: pointer;
+  width: 100%;
+}
+.btncancel, .btndelete {
+  float: left;
+  width: 50%;
+}
+.btncancel {
+  background-color: tomato;
+  color: black;
+}
+.btndelete {
+  background-color: yellow;
+  color: black;
+}
+.container {
+  padding: 16px;
+  text-align: center;
+}
+.modal {
+  display: none; 
+  position: fixed; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: #474e5d;
+  padding-top: 50px;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #aabbcc;
+  width: 80%;
+}
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+ 
+/* Close Button (x) */
+.close {
+  position: absolute;
+  right: 35px;
+  top: 15px;
+  font-size: 50px;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+.close:hover,
+.close:focus {
+  color: #f44336;
+  cursor: pointer;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<body>
+
+<h2 style="text-align: center;">Modal</h2>
+
+<button class="showModal">Open Modal</button>
+<div id="mymodal" class="modal">
+  <span onclick="document.getElementById('mymodal').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content">
+    <div class="container">
+      <h1>Delete file?</h1>
+      <p>Are you sure you want to delete the file?</p>
+      <div class="clearfix">
+        <button class="btncancel">Cancel</button>
+        <button class="btndelete">Delete</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+var modal = document.getElementById('mymodal');
+function showModal(){
+    document.getElementById('mymodal').style.display='block'
+}
+function hideModal(){
+    document.getElementById('mymodal').style.display='none'
+}
+
+</script>
+</body>
+</html>

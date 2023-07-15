@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <style>
+    *{
+        box-sizing: border-box;
+    }
+    .backGroundBody{
+                background-image: url("images/a1.png");
+    }
+    .header {
+        background-color: rgb(64, 240, 16);
+        text-align: center;
+        padding: 20px;
+        border-radius: 3px;
+      }
+      .box{
+          position: relative;
+          border: 5px solid tomato;
+          border-radius: 10px;
+          width: 30%;
+          height: 400px;
+          margin-top:35;
+          margin-left: 35%;
+      }
+      .circle{
+          width: 40px;
+          height: 40px;
+          background: turquoise;
+          border-radius: 50%;
+          position: absolute;
+          top:-5%;
+          left: -5%;
+          text-align: center;
+          padding-top: 2.5%;
+      }
+      .box img{
+          width: 30%;
+          height: auto;
+          margin-left: 35%;
+          margin-top: 10%;
+      }
+      .box p{
+          width: 100%;
+          padding: 15px;
+          margin:0px;
+          color: white;
+      }
+      .btnScroll{
+          width: 30%;
+          height: 60px;
+          margin: auto;
+          margin-top: 2%;
+          background: yellow;
+          border-radius: 10px;
+          margin-left: 35%;
+          cursor: pointer;
+      }
+      .btnScroll:hover{
+          background: tomato;
+      }
+      .btnNext{
+          position: absolute;
+          bottom: 20px;
+          left: 25%;
+          width: 50%;
+          background: tomato;
+          border-radius: 10px;
+          height: 60px;
+      }
+        </style>
+    </head>
+      
+    <body class="backGroundBody">
+        <div class="header">
+            <h1>Scrolling Gallery</h1>
+        </div>
+        <div>
+            <button class="btnScroll" onclick="scrollNext(5)">scroll down</button>
+        </div>
+        <div id="box1" class="box">
+            <div class="circle">1</div>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            <img src="images/sad.png">
+            <button id="btn1" class="btnNext" onclick="scrollNext(2)">Next</button>
+        </div>
+        <div id="box2" class="box">
+            <div class="circle">2</div>
+
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            <img src="images/sea.png">
+            <button id="btn2" class="btnNext" onclick="scrollNext(3)">Next</button>
+
+        </div>
+
+        <div id="box3" class="box">
+            <div class="circle">3</div>
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            <img src="images/smile.png">
+            <button id="btn3" class="btnNext" onclick="scrollNext(4)">Next</button>
+
+        </div>
+        <div id="box4" class="box">
+            <button class="btnNext" onclick="scrollNext(5)">Next</button>
+
+            <div class="circle">4</div>
+
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            <img src="images/star.png">
+            <button id="btn4" class="btnNext" onclick="scrollNext(5)">Next</button>
+
+        </div>
+        <div id="box5" class="box">
+            <div class="circle">5</div>
+
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+            <img src="images/sad.png">
+            <button id="btn4" class="btnNext" onclick="scrollNext(1)">Top</button>
+
+        </div>
+        
+        <script>
+               function scrollNext(i){
+                console.log(i)
+                let box=document.getElementById("box"+i)
+                box.scrollIntoView({behavior: 'smooth'})
+            }
+
+        </script>
+    </body>
+</html>

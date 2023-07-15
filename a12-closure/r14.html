@@ -1,0 +1,22 @@
+<html>
+    <head><title>Function Literals</title></head>
+    <body><h1>Hello Repeat</h1></body>
+    <script>
+    var player = {
+    shoot:function(times){
+    console.log(Array(times + 1).join("shoot"));
+    },
+    jump:function(times){
+    console.log(Array(times + 1).join("jump"));
+    },
+    sit:function(times){
+    console.log(Array(times + 1).join("sit"));
+    }
+    }
+    player.shoot(3);
+    player.jump(2);
+    player.sit(5);
+</script>
+</html>
+
+    

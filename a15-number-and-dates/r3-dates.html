@@ -1,0 +1,25 @@
+<html>
+    <body>
+        <h1>Date</h1>
+        <script>
+            let now = new Date();
+            console.log(now)
+            console.log(new Date("November 12, 2021"))
+            console.log(new Date(2021,10,25,10,43,20))//year,month,day,hour,minuets, seconds
+            //motnh : 0-11 
+            console.log(new Date(2021,10,25))//year,month,day
+            console.log(now.getFullYear())
+            console.log(now.getMonth())
+            console.log(now.getDate())
+            console.log(now.getDay())
+            console.log(now.getHours())
+            console.log(now.getMinutes())
+            console.log(now.getSeconds())
+            console.log(now.toISOString())
+            console.log(now.getTime())// stamp 
+            //you can use setters 
+            now.setMonth(1)
+
+        </script>
+    </body>
+</html>

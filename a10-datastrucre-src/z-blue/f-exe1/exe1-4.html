@@ -1,0 +1,52 @@
+<html>
+    <body>
+        <script>
+            let restaurant = {
+                timeShift1: "8:00-16:00",
+                timeShift2: "16:00-00:00",
+                shiftsWorkers: [
+                    ["Mike", "James", "John", "Michael", "William", "David"],
+                    [
+                        "Joseph",
+                        "Thomas",
+                        "Charles",
+                        "Christopher",
+                        "Daniel",
+                        "Mark",
+                    ],
+                ],
+                totalTipShift1: 4000,
+                totalTipShift2: 5000,
+                tipped: ["Mike", "James", "Michael", "David", "Thomas"],
+                date: "12/12/2021",
+            };
+            /* 
+
+1. Create one worker array for each shift 
+2. The first worker in any shiftsWorkers array is the shiftManager and
+ the others are simple workers.
+ For Mike (shift 1) create one variable ('SM')
+ with the worker's name, and one array
+ ('simpleWorkers') with all the remaining  field workers
+3. Create an array 'allWorkers' containing all workers of both shifts (12 workers)
+4. Write a function ('tipped') that receives an arbitrary number of worker names 
+(NOT an array) and prints each of them to the console,
+*/
+
+            // 1.
+            const [workers1, workers2] = restaurant.shiftsWorkers;
+            console.log(workers1, workers2);
+            // 2.
+            let [sm, ...fieldWorkers] = workers1;
+            console.log(sm, fieldWorkers);
+            // 3.
+            const allWorkers = [...workers1, ...workers2];
+            console.log(allWorkers);
+            // 4.
+            const printTip = function (...workers) {
+                console.log(workers);
+            };
+            printTip("Mike", "James", "Michael", "David", "Thomas");
+        </script>
+    </body>
+</html>

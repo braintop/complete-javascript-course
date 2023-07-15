@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>If else 4</title>
+    </head>
+    <body> 
+    <h1>Exercise4</h1>
+    <p id="details"></p>
+    <button onclick="exercise4()">click me</button>
+    </body>
+    <script>
+    function exercise4(){
+    var lucky = prompt("print a number")
+        if(lucky==parseInt(1000000))
+        {
+            document.getElementById("details").innerText="1000000$"
+            document.getElementById("details").style.color="blue"
+            document.getElementById("details").style.backgroundColor="yellow"
+            document.getElementById("details").style.border="1px solid green"
+        }
+        else {
+            document.getElementById("details").innerText="Asaf Amir"
+            document.getElementById("details").style.color="yellow"
+            document.getElementById("details").style.backgroundColor="black"
+            document.getElementById("details").style.border="5px solid red"
+        }
+    }
+    </script>
+    </html>
+    

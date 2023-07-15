@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Disco</title>
+        <style>
+            div.source,
+            div.target {
+                border: 1px solid gray;
+                margin: 0.5rem;
+                padding: 0.5rem;
+                height: 1rem;
+                background-color: #e9eef1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="source" contenteditable="true">
+            Copy text from this box.
+        </div>
+        <div class="target" contenteditable="true">
+            And paste it into this one.
+        </div>
+
+        <script>
+            const source = document.querySelector("div.source");
+
+            source.addEventListener("copy", (event) => {
+                const selection = document.getSelection();
+                event.clipboardData.setData(
+                    "text/plain",
+                    selection.toString().toUpperCase()
+                );
+                event.preventDefault();
+            });
+        </script>
+    </body>
+</html>

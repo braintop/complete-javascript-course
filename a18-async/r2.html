@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <img src="" class="cat">
+        <button onclick="details()">click</button>
+        <script>
+            function details() {
+            let img = document.querySelector(".cat")
+            //img.src is asynchronous 
+            img.src="cat.png"
+            img.addEventListener('load', function(){
+                img.classList.add("someclass")
+            })
+        }
+        </script>
+    </body>
+</html>

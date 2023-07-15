@@ -1,0 +1,45 @@
+<html>
+    <body>
+        <script>
+            //Replace your previous function with the following
+            function Person(name) {
+            this.name = name;
+            this.greeting = function() {
+            alert('Hi! I\'m ' + this.name + '.');
+        };
+    }
+    // The constructor function is JavaScript's version of a class.
+    // Notice that it has all the features you'd expect in a function,
+    // although it doesn't return anything or explicitly
+    // create an object — it basically just defines properties and methods.
+    // Notice also the this keyword being used here
+    // as well — it is basically saying that whenever one of these object instances is created,
+    // the object's name property will be equal to the name value passed to the constructor call,
+    // and the greeting() method will use the name value passed to the constructor call too.
+    let person1 = new Person('Bob');
+    let person2 = new Person('Sarah');
+    person1.name
+    person1.greeting()
+    person2.name
+    person2.greeting()
+    //After the new objects have been created,
+    //the person1 and person2 variables contain the following objects:
+
+    // {
+    //     name: 'Bob',
+    //     greeting: function() {
+    //     alert('Hi! I\'m ' + this.name + '.');
+    //     }
+    // }
+
+    // {
+    //     name: 'Sarah',
+    //     greeting: function() {
+    //     alert('Hi! I\'m ' + this.name + '.');
+    //     }
+    // }
+
+
+        </script>
+    </body>
+</html>

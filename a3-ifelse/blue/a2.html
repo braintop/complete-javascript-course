@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+   <body>
+        <h1>Exercise2</h1>
+       <button onclick="clicki()">click me</button>
+       <div id="details">1</div>
+       <script>
+           function clicki(){
+            var num1 = parseInt(prompt("print a number"))
+            if(num1%2==0){
+                document.getElementById("details").style.color = "blue";
+                document.getElementById("details").style.backgroundColor="yellow"
+                document.getElementById("details").style.border="1px solid green"
+                document.getElementById("details").innerHTML="Even"
+            }
+            else {
+                document.getElementById("details").style.color = "yellow";
+                document.getElementById("details").style.backgroundColor="black"
+                document.getElementById("details").style.border="1px solid red"
+                document.getElementById("details").innerHTML="Odd"  
+                }
+
+            }
+       </script>
+   </body>
+</html>

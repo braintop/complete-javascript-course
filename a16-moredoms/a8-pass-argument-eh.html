@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <h1>Passing argument to event handle</h1>
+        <button>Hello World</button>
+
+        <script>
+            // create a function 
+            function event_handler(event, arg) {
+            console.log(event, arg);
+            }
+            // Assign the listener callback to a variable
+            var doClick = (event) => event_handler(event, 'An argument'); 
+            el = document.querySelector('button');
+            el.addEventListener('click', doClick);
+        </script>
+    </body>
+</html>

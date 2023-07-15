@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-color: #de840f;
+            }
+            .backGroundBody {
+                background-image: url("images/back.png");
+            }
+            h1 {
+                text-align: center;
+                color: white;
+                margin-top: 50px;
+            }
+            img {
+                margin-left: 10%;
+            }
+            .input {
+                float: left;
+                display: block;
+                width: 30%;
+            }
+            .output {
+                float: left;
+                display: block;
+                color: white;
+                width: 30%;
+            }
+            .imgGuess {
+                float: left;
+                display: block;
+                color: white;
+                width: 60%;
+            }
+            .imgGuess img {
+                width: 50%;
+            }
+            .btn {
+                width: 100%;
+                height: 150px;
+                background-image: linear-gradient(red, yellow);
+            }
+            input[type="text"] {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                border-radius: 10px;
+            }
+            .playAgain {
+                float: left;
+                width: 100%;
+                display: block;
+                margin-left: 45%;
+            }
+            .playAgain button {
+                margin: 0;
+                position: absolute;
+                left: 50%;
+                background-image: linear-gradient(rgb(9, 255, 0), yellow);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                width: 30%;
+                height: 60px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+    <body class="backGroundBody">
+        <h1>With which letter does it start</h1>
+        <h1 class="countQuestion">Question number 1</h1>
+        <div class="imgGuess">
+            <img id="imgToGuess" src="images/hat.png" />
+        </div>
+        <div class="input">
+            <input type="text" id="input" />
+            <button class="btn play">Play</button>
+        </div>
+        <div class="output">
+            <h2 class="message">correct number</h2>
+            <h2 class="score">score : 10</h2>
+            <h2 class="highscore">🍭 high score : 0</h2>
+        </div>
+        <div class="playAgain hidden">
+            <button>Game over-lets play again</button>
+        </div>
+        <script>
+            var arr = ["images/hat.png", "images/boat.png", "images/short.png"];
+            var arrWord = ["hat", "boat", "shirt"];
+            var counter = 0;
+            var i = selectRandomImage();
+            var score = 0;
+            var highScore = 0;
+            document.body.classList.add("backGroundBody");
+            let btnPlayAgain = document.querySelector(".playAgain");
+            //hidden and show button game over play again
+            const showbtnPlayAgain = function () {
+                btnPlayAgain.classList.remove("hidden");
+            };
+            const hiddenbtnPlayAgain = function () {
+                btnPlayAgain.classList.add("hidden");
+            };
+            function selectRandomImage() {
+                document.querySelector(".countQuestion").textContent =
+                    "Question number " + (counter + 1);
+                let index = Math.floor((Math.random() * 10) % 3);
+                document.getElementById("imgToGuess").src = arr[index];
+                return index;
+            }
+            function play() {
+                counter++;
+                if (counter <= 3) {
+                    let word = arrWord[i];
+                    var letter = document.getElementById("input").value;
+                    //var imgLetter = document.getElementById("imgToGuess").na
+                    if (!letter) {
+                        document.querySelector(".message").textContent =
+                            "No Letter 🥵";
+                        score -= 2;
+                    } else if (letter == word[0]) {
+                        document.querySelector(".message").textContent =
+                            "correct Answer 🤙";
+                        score += 5;
+                    } else if (letter != word[0]) {
+                        document.querySelector(".message").textContent =
+                            "correct Answer 👎";
+                        score -= 2;
+                    }
+                    document.getElementById("input").value = "";
+                    document.querySelector(".score").textContent =
+                        "score :  " + score;
+                    if (counter < 3) {
+                        i = selectRandomImage();
+                    }
+                }
+                if (counter > 2) {
+                    gameOver();
+                }
+            }
+            //event listener
+            document.querySelector(".play").addEventListener("click", play);
+
+            function gameOver() {
+                if (score > highScore) {
+                    highScore = score;
+                    document.querySelector(".highscore").textContent =
+                        "🍭 high score " + score;
+                }
+                document.body.classList.remove("backGroundBody");
+                showbtnPlayAgain();
+            }
+        </script>
+    </body>
+</html>

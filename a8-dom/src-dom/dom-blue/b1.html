@@ -1,0 +1,24 @@
+<html>
+  <body>
+      <h1>Color  🟥 or 🟦 </p>
+      <button onclick="colorGreenOrBlue()">Color 🟥 or 🟦</button>
+      <ul id="items">
+          <li>1</li>
+          <li>208</li>
+          <li>99</li>
+      </ul>
+      <script>
+          function colorGreenOrBlue(){
+           var list = document.querySelectorAll('#items li');
+           for(var i=0; li=list[i]; i++) {
+               if(parseInt(li.innerText) > 100)
+                    li.style.color = "blue"
+               else 
+                    li.style.color = "red"
+           }
+          }
+      </script>
+  </body>  
+</html>
+
+

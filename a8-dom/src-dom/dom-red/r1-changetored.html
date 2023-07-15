@@ -1,0 +1,17 @@
+<html>
+   <body>
+       <h1>Change second to red 😱</p>
+       <button onclick="changeSecondItemToRed()">Change second to red</button>
+       <ul id="myFriends">
+           <li>hi 😇</li>
+           <li>by 👺</li>
+           <li>dy 👻</li>
+       </ul>
+       <script>
+           function changeSecondItemToRed(){
+               let items=document.getElementById("myFriends").querySelectorAll('li');
+               items[1].style.color = "red"
+           }
+       </script>
+   </body>   
+</html>

@@ -1,0 +1,28 @@
+<html>
+<body>
+    <button onclick="createButtons(5,'blue')">create</button>
+    <section style="margin-top: 50px;"></section>
+    <script>
+    function createButtons(num, color)
+    {
+        for(let i=0;i<num;i++ ){
+        var div = document.createElement('div');
+        div.style.backgroundColor = color;
+        div.style.height = "30px";
+        div.style.margin="3px";
+        div.style.width = "30px";
+        div.style.cssFloat = "left";
+        div.style.cursor = "pointer";
+        div.draggable = "true";
+        
+        div.onclick = function(){
+            alert('you clicked on a box #' + i);
+        }
+        document.getElementsByTagName('section')[0].appendChild(div);
+        }
+    }
+
+ 
+</script>
+</body>
+</html>

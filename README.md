@@ -1,2 +1,3 @@
-# -complete-javascript-course
-A complete javascript course 
+# complete-javascript-course
+
+A complete javascript course

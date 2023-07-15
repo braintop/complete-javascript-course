@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <button onclick="f()"> start</button>
+        <script>
+// 1.Receive from the user into a map object the amount of calories 
+//he eats at breakfast, lunch and dinner.
+// Keys : breakfast,lunch,dinner 
+// 2. Print the map to the console 
+            function f(){
+                let breakfast = prompt("breakfast calories")
+                let lunch = prompt("lunch calories")
+                let dinner = prompt("dinner calories")
+                let person = new Map()
+                person.set('breakfast',breakfast)
+                person.set('lunch',lunch)
+                person.set('dinner',dinner)
+                console.log(person)
+            }
+        </script>
+    </body>
+</html>
+

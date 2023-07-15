@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background: tomato;
+            }
+            ul {
+                list-style-type: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Create List of Images</h1>
+        <p>Write in textbox name of image and load it.
+        you can select from the list below :</p> 
+        <p style="color:green">if the picture is not in list please make alert</p>
+        <p style="color:green">Please make the picture width and height 100px</p>
+
+        <ol class="txtList">
+            <li>poop.png</li>
+            <li>sea.png</li>
+            <li>smile.png</li>
+            <li>star.png</li>
+            <li>sad.png</li>
+        </ol>
+        <input type="text" id="name">
+        <button class="add" onclick="add()">Add picture</button>
+        <ul id="list">
+        </ul>
+        <script>
+            function add(){
+                let arr = ['poop.png','sea.png','smile.png','star.png','sad.png' ]
+                let val = document.getElementById("name").value;
+                if(arr.indexOf(val)>=0){
+                    let img = document.createElement("img")
+                    img.src = val; 
+                    img.style.width='100px'
+                    img.style.height='100px'
+                    let ul = document.getElementById("list")
+                    let li = document.createElement("li")
+                    li.appendChild(img)
+                    ul.append(li)
+                    document.getElementById("name").value = ""
+                }
+                else {
+                    alert("Image Not Found, try again")
+                }
+            }
+
+        </script>
+    </body>
+</html>

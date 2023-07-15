@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <body>
+       <button onclick="average()">average of 3 numbers</button>
+       <p id="myp"></p>
+       <script>
+           function average(){
+               var n1 = prompt("print first number")
+               var n2 = prompt("print second number")
+               var n3 = prompt("print third number")
+               n1 = parseInt(n1)
+               n2 = parseInt(n2)
+               n3 = parseInt(n3)
+
+               var avg = (n1 + n2 + n3) / 3
+               alert(avg)
+               document.getElementById("myp").innerText=avg
+
+           }
+       </script>
+   </body>
+</html>
+

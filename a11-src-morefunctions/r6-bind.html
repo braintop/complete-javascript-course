@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <script>
+            let  course= {
+            name: '',
+            description: '',
+            students:[],
+            addStudents(studentName){
+                    this.students.push(studentName)
+                    console.log(`${studentName} added to ${this.name} course`)
+            },
+            date: '12/12/2021'
+            };
+            let english = {
+                name:"english course",
+                description:"this is good",
+                students:[]
+            }
+            
+            let addStudents = course.addStudents;
+            addStudents.call(course,"Ron");//call 
+
+            //bind 
+            let addToEnglsihStudents = addStudents.bind(english);
+            addToEnglsihStudents("Lara")
+            addToEnglsihStudents("Lisa")
+            addToEnglsihStudents("Morgan")
+
+        </script>
+    </body>
+</html>

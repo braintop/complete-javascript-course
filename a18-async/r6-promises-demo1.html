@@ -1,0 +1,50 @@
+<html>
+    <body>
+        <input type="text" id="country">
+        <button onclick="f1()">promise</button>
+        <div class="flags"></div>    
+        
+        <script>
+        function f1(){
+            let country = document.getElementById("country").value 
+            let req =  new XMLHttpRequest();
+            req.open('GET', `https://restcountries.com/v2/name/${country}`)
+            req.send()
+            req.addEventListener('load', function(){
+            let [data] = JSON.parse(this.responseText)
+                console.log(data)
+            })
+        }
+        //promise : an object that is used as placeholder for the future 
+        //result of an asynchronous operation
+        //promise : A container for asynchronously delivered value 
+        //promise : A container for a future value 
+        //in promises we can chain promises for a sequance of asynchronous opertions 
+        //instead of nesting - promises are es6 featured
+        //life cycle - pending ->async task - > settled(async task has finished) and than fullfilled or rejected(error) 
+        //consume a promise - return from fetch api  
+        //later we will build our promises 
+        
+        let getCountry = function (name){
+            //phase 1 :pending 
+            //the promise is settled
+            //its fullfilled or rejected state
+            //handle fullfilled promise 
+            let req = fetch(`https://restcountries.com/v2/name/${name}`)
+            .then(function(response){
+                console.log(response)
+                //the data is in the body 
+                //need to call the json 
+                return response.json()//available in all result value.
+                //The response.json() its asynchronous function. so its return promise  
+
+            }).then(function(data){
+                console.log(data)
+            })
+            }
+        getCountry('usa')
+
+
+        </script>
+    </body>
+</html>

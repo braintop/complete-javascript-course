@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <div>
+            <button onclick="show()">Show coordinate</button>
+        </div>
+        <div id="box1" class="box">
+            <p>
+                Lorem Ipsum is simply dummy 
+                industry. Lorem Ipsum has been the 
+            </p>
+        </div>
+        <script>
+            function show(){
+                let box=document.getElementById("box1")
+                let coords = box.getBoundingClientRect();
+                console.log(coords)
+                console.log('window offset x :' + window.pageXOffset)
+                console.log('window offset y :' + window.pageYOffset)
+                console.log('width :' + document.documentElement.clientWidth)
+                console.log('height :' + document.documentElement.clientHeight)
+            }
+        </script>
+    </body>
+</html>

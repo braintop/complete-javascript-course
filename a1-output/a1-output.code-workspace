@@ -1,0 +1,89 @@
+{
+    "folders": [
+		{
+			"name": "a1-output",
+			"path": "."
+		},
+		{
+			"name": "a2-input",
+			"path": "../a2-input"
+		},
+		{
+			"name": "a3-ifelse",
+			"path": "../a3-ifelse"
+		},
+		{
+			"name": "a4-for-while-solutions",
+			"path": "../a4-for-while-solutions"
+		},
+		{
+			"name": "a5-array-src",
+			"path": "../a5-array-src"
+		},
+		{
+			"name": "a6-functions",
+			"path": "../a6-functions"
+		},
+		{
+			"name": "a7-object",
+			"path": "../a7-object"
+		},
+		{
+			"name": "a8-dom",
+			"path": "../a8-dom"
+		},
+		{
+			"name": "a9-handler",
+			"path": "../a9-handler"
+		},
+		{
+			"name": "a10-datastrucre-src",
+			"path": "../a10-datastrucre-src"
+		},
+		{
+			"name": "a11-src-morefunctions",
+			"path": "../a11-src-morefunctions"
+		},
+		{
+			"name": "a12-closure",
+			"path": "../a12-closure"
+		},
+		{
+			"name": "a13-foreach",
+			"path": "../a13-foreach"
+		},
+		{
+			"name": "a14-reduce-map-filter",
+			"path": "../a14-reduce-map-filter"
+		},
+		{
+			"name": "a15-number-and-dates",
+			"path": "../a15-number-and-dates"
+		},
+		{
+			"name": "a16-moredoms",
+			"path": "../a16-moredoms"
+		},
+		{
+			"name": "a17-oop",
+			"path": "../a17-oop"
+		},
+		{
+			"name": "a18-async",
+			"path": "../a18-async"
+		},
+		{
+			"name": "a19-src-morealgo-recursice",
+			"path": "../a19-src-morealgo-recursice"
+		},
+		{
+			"name": "ShiftBuilder",
+			"path": "../ShiftBuilder"
+		},
+		{
+			"name": "JavaScriptCourse",
+			"path": "../../Desktop/JavaScriptCourse"
+		}
+	],
+    "settings": {}
+}

@@ -1,0 +1,49 @@
+<html>
+    <body>
+        <script>
+            function Person(first, last, age, gender, interests) {
+            this.name = {
+                first,
+                last
+            };
+            this.age = age;
+            this.gender = gender;
+            this.interests = interests;
+            };
+            //The methods are all defined on
+            //the constructor's prototype. For example:
+            Person.prototype.greeting = function() {
+            alert('Hi! I\'m ' + this.name.first + '.');
+            };
+            function Teacher(first, last, age, gender,
+            interests, subject) {
+            Person.call(this, first, last, age, gender, interests);
+            this.subject = subject;
+            }
+
+            // This looks similar to the Person constructor in many ways,
+            // but there is something strange here that we've
+            // not seen before — the call() function.
+            // This function basically allows you to call a function defined somewhere else,
+            // but in the current context. The first parameter specifies the value of this that
+            // you want to use when running the function, 
+            // and the other parameters are those that should be passed to the
+            // function when it is invoked.
+            
+            // We want the Teacher() constructor to take 
+            // the same parameters as the Person() 
+            // constructor it is inheriting from, 
+            // so we specify them all as parameters
+            // in the call() invocation.
+
+            // The last line inside the constructor defines
+            // the new subject property that teachers are 
+            // going to have, which generic people don't have.
+            // As a note, we could have done this:
+
+
+
+
+        </script>
+    </body>
+</html>

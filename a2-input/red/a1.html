@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+   <body>
+       <button onclick="reset()">reset</button>
+       <button onclick="enlarge()">click me</button>
+       <div id="details">1</div>
+       <script>
+           function reset(){
+               document.getElementById("details").style.width = "100px";
+               document.getElementById("details").style.backgroundColor="yellow"
+               document.getElementById("details").style.textAlign="center"
+           }
+           function enlarge(){
+               var w = document.getElementById("details").offsetWidth;
+               w = parseInt(w) + 10;
+               document.getElementById("details").style.width = w + "px";
+           }
+       </script>
+   </body>
+</html>

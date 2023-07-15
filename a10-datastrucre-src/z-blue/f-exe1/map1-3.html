@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <script>
+// 1. remove comment with key 70 
+// 2. remove comment with key 55
+// 2. Print the   size of the map 
+// 3. Loop over the map and log them to the console
+const comments = new Map([
+  [50, '🎃 FAIL'],
+  [55, '👻 OVER'],
+  [60, '😌 ENOUGH'],
+  [70, '❤️ ALMOST GOOD'],
+  [80, '😍 GOOD'],
+  [90, '🤪 VERY GOOD'],
+  [100, '👏 EXCELLENT'],
+]);
+
+// 1.
+console.log(comments.get(70));
+
+// 2.
+comments.delete(55);
+
+// 3.
+console.log(
+  `size of event is   ${comments.size}`
+);
+
+// 4.
+for (const [key, value] of comments) {
+  console.log(`${key} : ${value}`);
+}
+        </script>
+    </body>
+</html>

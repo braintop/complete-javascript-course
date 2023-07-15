@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Disco</title>
+        <style>
+            aside {
+                background: #fe9;
+                border-radius: 1em;
+                display: inline-block;
+                padding: 1em;
+                transform: scale(0.9);
+                transform-origin: 0 0;
+                transition: transform 0.6s;
+                user-select: none;
+            }
+
+            .large {
+                transform: scale(1.3);
+            }
+        </style>
+    </head>
+    <body>
+        <aside>
+            <h3>My Card</h3>
+            <p>Double click to resize this object.</p>
+        </aside>
+
+        <script>
+            const card = document.querySelector("aside");
+
+            card.addEventListener("dblclick", (e) => {
+                card.classList.toggle("large");
+            });
+        </script>
+    </body>
+</html>

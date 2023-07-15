@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Exercise7</h1>
+        <button onclick="selectImage()">Select Image</button>
+        <br>
+        <br>
+
+        <img src="a1.png" id="i1" width="100" height="100">
+        <img src="a2.png" id="i2" width="100" height="100">
+        <img src="a3.png" id="i3" width="100" height="100">
+
+        <script>
+            function selectImage(){
+                var num1 = prompt("print number")
+                num1 = parseInt(num1)
+                if(num1<100){
+                    document.getElementById("i1").hidden = false;
+                    document.getElementById("i2").hidden = false;
+                    document.getElementById("i3").hidden = false;
+
+                }
+                else if(num1==100){
+                    document.getElementById("i1").hidden = false;
+                    document.getElementById("i2").hidden = false;
+                    document.getElementById("i3").hidden = true;
+
+                }
+                else if(num1>100){
+                    document.getElementById("i1").hidden = false;
+                    document.getElementById("i2").hidden = true;
+                    document.getElementById("i3").hidden = true;
+
+                }
+            }
+        </script>
+    </body>
+</html>

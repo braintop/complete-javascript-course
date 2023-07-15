@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Disco</title>
+    </head>
+    <body>
+        <button class="buttonAdd">change color</button>
+        <button onClick="remove()">remove event</button>
+
+        <script>
+            const btnAdd = document.querySelector(".buttonAdd");
+            const controller = new AbortController();
+
+            function random(number) {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            btnAdd.addEventListener(
+                "click",
+                () => {
+                    const rndCol = `rgb(${random(255)}, ${random(
+                        255
+                    )}, ${random(255)})`;
+                    document.body.style.backgroundColor = rndCol;
+                },
+                { signal: controller.signal } // pass an AbortSignal to this handler
+            );
+
+            function remove() {
+                alert("abort listeners");
+                controller.abort(); // removes any/all event handlers associated with this controller
+            }
+        </script>
+    </body>
+</html>

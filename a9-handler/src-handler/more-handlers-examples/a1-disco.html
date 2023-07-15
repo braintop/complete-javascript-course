@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Disco</title>
+    </head>
+    <body>
+        <button class="buttonAdd">change color</button>
+        <button class="buttonRemove">remove event</button>
+
+        <script>
+            const btnAdd = document.querySelector(".buttonAdd");
+            const btnRemove = document.querySelector(".buttonRemove");
+
+            function random(number) {
+                return Math.floor(Math.random() * (number + 1));
+            }
+            function randomColor() {
+                const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(
+                    255
+                )})`;
+                document.body.style.backgroundColor = rndCol;
+            }
+            btnAdd.addEventListener("click", randomColor);
+            //btnRemove.removeEventListener("click", randomColor);
+        </script>
+    </body>
+</html>

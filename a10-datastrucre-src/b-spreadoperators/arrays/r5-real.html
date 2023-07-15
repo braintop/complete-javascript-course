@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <script>
+            let rankPlayers = [
+                prompt("1-5 what do you think about Mikel"),
+                prompt("1-5 what do you think about Lisa"),
+                prompt("1-5 what do you think about Luis"),
+            ];
+            console.log(rankPlayers);
+            function average(n1,n2,n3){
+                return (parseInt(n1)+parseInt(n2)+parseInt(n3))/3
+            }
+            console.log(rankPlayers);
+            console.log(average(rankPlayers[0], rankPlayers[1], rankPlayers[2]))
+            console.log(average(...rankPlayers))
+
+
+        </script>
+    </body>
+</html>

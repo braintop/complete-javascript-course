@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <script>
+            //key value pairs 
+            //keys are always string. value can be any object 
+            const player1 = new Map()
+            player1.set("firstname","Mikel")
+            player1.set("lasttname","Luis")
+            player1.set("hobbit","Basketball")
+            player1.set("city","NY")
+            player1.set("country","United States")
+            player1.set("age",20)
+            //or
+            const player2 = new Map()
+            player2.set("firstname","Mikel")
+            .set("lasttname","Luis")
+            .set("hobbit","Basketball")
+            .set("city","NY")
+            .set("country","United States")
+            .set("age",20)
+            console.log(player2)
+            console.log(player2.get("firstname"))//Mikel
+            console.log(player2.has("firstname"))
+            player2.delete("firstname")
+            console.log(player2.has("firstname"))
+            console.log(player2.size)
+            //player2.clear()
+            console.log(player2.size)
+            for (const [key, value] of player2){
+                console.log(`${key} : ${value}`)
+            }
+            //convert map to array 
+            let arrPlayer = [...player2]
+            let keys = [...player2.keys()]
+            let values = [...player2.values()]
+            console.log("keys : " , keys)
+            console.log("values : " , values)
+
+        </script>
+    </body>
+</html>

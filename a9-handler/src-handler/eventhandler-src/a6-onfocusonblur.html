@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <h3>Change Background Color of Textbox</h3>
+        Enter your name:
+        <input type="text" id="myInput" onfocus="focusFunction()"
+         onblur="blurFunction()">
+
+        <script>
+            function focusFunction() {
+            document.getElementById("myInput").style.background = "yellow";
+            }
+
+            function blurFunction() {
+            document.getElementById("myInput").style.background = "red";
+            }
+        </script>
+    </body>
+
+</html>

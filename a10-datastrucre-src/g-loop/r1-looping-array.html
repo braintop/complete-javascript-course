@@ -1,0 +1,46 @@
+<html>
+    <body>
+        <script>
+        <h1>Looping Array</h1>
+        let restaurant= {
+        timeShift1: '8:00-16:00',
+        timeShift2: '16:00-00:00',
+        shiftsWorkers: [
+            [
+            'Mike',
+            'James',
+            'John',
+            'Michael',
+            'William',
+            'David',
+            ],
+            [
+            'Joseph',
+            'Thomas',
+            'Charles',
+            'Christopher',
+            'Daniel',
+            'Mark',
+            ],
+        ],
+        totalTipShift1:4000,
+        totalTipShift2:5000,
+        tipped: ['Mike', 'James', 'Michael', 'David','Thomas'],
+        date: '12/12/2021'
+        };
+        const [a,b] = [...restaurant.shiftsWorkers];
+        const allWorkers = [...a, ...b]
+        console.log(allWorkers)
+        for(const item of allWorkers){
+            console.log(item)
+        }
+        for(const item of allWorkers.entries()){
+                console.log(item)
+        }
+        for(const [i,el] of allWorkers.entries()){
+                console.log(`${i+1}. ${el}`)
+        }
+
+        </script>
+    </body>
+</html>

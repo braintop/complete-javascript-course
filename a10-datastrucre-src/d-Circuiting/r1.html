@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <script>
+            a || (b * c);  // evaluate `a` first, then produce `a` if `a` is "truthy"
+            a && (b < c);  // evaluate `a` first, then produce `a` if `a` is "falsy"
+            a ?? (b || c); // evaluate `a` first, then produce `a` if `a` is not `null` and not `undefined`
+            a?.b.c;        // evaluate `a` first, then produce `undefined` if `a` is `null` or `undefined`
+        
+        </script>
+    </body>
+</html>

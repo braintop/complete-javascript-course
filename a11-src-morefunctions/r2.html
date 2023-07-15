@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <script>
+            function add(n1, n2){
+            console.log(n1+n2);
+            }
+            function sub(n1, n2){
+            console.log(n1-n2);
+            }
+            function mult(n1, n2){
+            console.log(n1*n2);
+            }
+            function f(n1, n2, callback, callback2){
+            callback(n1,n2);
+            callback2(n1,3);
+            }
+            f(5,6,mult,add);
+        </script>
+    </body>
+</html>

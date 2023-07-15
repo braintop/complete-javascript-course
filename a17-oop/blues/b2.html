@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <script>
+        function Shape(color,x,y) {
+            this.color = color;
+            this.x = x;
+            this.y = y;
+            this.move = function(x,y) {
+                this.x+=x;
+                this.y+=y; 
+                alert( "(" +this.x + ',' + this.y + ")");
+            };
+    }
+    function Rect(color,x,y, w,h) {
+            Shape.call(this, color,x,y);
+            this.w = w;
+            this.h =h;
+            this.area = function(x,y) {
+                let s=  this.h*this.w;
+                alert(s)
+            };
+    }
+    let r= new Rect("Blue", 100,200, 300,300);
+    console.log(r)
+    r.area()
+        </script>
+    </body>
+</html>

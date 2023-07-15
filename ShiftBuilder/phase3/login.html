@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="loginbody">
+	<header>
+		
+		<nav id="navbar" class="">
+		  <div class="nav-wrapper">
+			<div class="logo">
+			  <a href="#home"><img src="images/logo.png"></a>
+			</div>
+
+			<ul id="menu">
+			  <li><a href="#services">About</a></li>
+			  <li><a href="#about">Shifts</a></li>
+			  <li><a href="#contact">Add Shift</a></li>
+			</ul>
+		  </div>
+		</nav>
+
+
+		<div class="menuIcon">
+		  <span class="icon icon-bars"></span>
+		  <span class="icon icon-bars overlay"></span>
+		</div>
+
+
+		<div class="overlay-menu">
+		  <ul id="menu">
+			  <li><a href="#services">About</a></li>
+			  <li><a href="#about">Shifts</a></li>
+			  <li><a href="#contact">Add Shift</a></li>
+			</ul>
+		</div>
+	</header>
+	<main>
+		<div class="container">
+			<div class="heading">
+				<h1>LOGIN</h1>
+			</div>
+			
+			<div class="row">
+				<div class="column box padding">
+					<h2 class="bold center">LOGIN</h2>
+					<form action="#" id="loginform"  onSubmit="return login()">
+						<input type="text" required id="username" name="username" placeholder="Username">
+						<input type="password" required id="password" name="password" placeholder="Password"><br>
+						<p class="text-right" style="font-size:1rem">forgot password?<a href="#" onclick="reset();return false;"> Click Here</a></p>
+						<input type="submit" value="Login">
+					 </form>
+				</div>
+				<div class="column box padding rightcol">
+					<h2 class="bold center">First time? </h2>
+					<div class="center mt-5">
+						<a href="register.html" class="buttonregister">Register</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</main>
+	<footer>
+		
+	</footer>
+	<script>
+		let menuIcon = document.querySelector('.menuIcon');
+        let nav = document.querySelector('.overlay-menu');
+
+        menuIcon.addEventListener('click', () => {
+            if (nav.style.transform != 'translateX(0%)') {
+                nav.style.transform = 'translateX(0%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            } else { 
+                nav.style.transform = 'translateX(-100%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            }
+        });
+
+        let toggleIcon = document.querySelector('.menuIcon');
+
+        toggleIcon.addEventListener('click', () => {
+            if (toggleIcon.className != 'menuIcon toggle') {
+                toggleIcon.className += ' toggle';
+            } else {
+                toggleIcon.className = 'menuIcon';
+            }
+        });
+		
+		function login() {
+			
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			if(password.length < 6){
+				alert("Please enter valid details");
+				return false;
+			}else{
+				localStorage.setItem("username", username);
+				localStorage.setItem("loginpassword", password);
+				window.location.replace("home.html");
+			}
+			return false;
+			
+		}
+		function reset() {
+			localStorage.removeItem("email");
+			localStorage.removeItem("password");
+			localStorage.removeItem("firstname");
+			localStorage.removeItem("lastname");
+			localStorage.removeItem("age");
+			localStorage.removeItem("username");
+			localStorage.removeItem("loginpassword");
+			alert("Reset Details successfully");
+			return false;
+			
+		}
+		
+	</script>
+  </body>
+</html>

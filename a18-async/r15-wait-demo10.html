@@ -1,0 +1,37 @@
+<html>
+    <body>        
+        <script>
+            let random = new Promise(function(resolve, reject){
+                console.log("let start 🎖")
+                setTimeout(function(){
+                    if(Math.random() >= 0.5){
+                    resolve('we love 🟩')//fullfilled promise 
+                    }
+                    else{
+                    reject(new Error('new Error reject 🟥'))
+                    }
+
+                },2000)
+            })
+            random.then(res=>console.log(res)).
+            catch(err=>console.log(err))
+
+            let wait = function(seconds){
+                return new Promise(function(resolve){
+                    setTimeout(resolve,seconds*1000)
+                })
+            }
+
+            wait(5).then(()=>{
+                console.log('We waited 5 seconds');
+                return wait(3);
+            }).then(()=>console.log('i waited 3 second'))
+
+            //immediately resolve 
+            Promise.resolve('abc').then(y=>console.log(y))
+            //immediately reject 
+            Promise.reject(new Error('something happend'))
+            .catch(y=>console.log(y))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+    <body>
+        <script>
+            const person = {
+            username: '',
+            password:'',
+            hobbies:[],
+            addHobby(hobby, description){
+                let objHobby = {hobby:hobby,description:description}
+                this.hobbies.push(objHobby)
+                console.log(`add ${hobby} to ${this.username}`)
+            }
+            };
+            let mike = {
+            username: 'mike',
+            password:'123',
+            hobbies:[],
+            };
+            mikeAddHobit = person.addHobby;
+            mikeAddHobit.call(mike,"basketbal", "I love to play")
+            console.log(mike)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <body>
+        
+        <h1 style="color:red" id="temp">Prepend</h1>
+        <button onclick="addBefore()">Add button before h1</button>        
+        <script>
+            function addBefore(){
+                let div = document.createElement('div')
+                div.innerHTML="<button>play</button>"
+                let h1 = document.querySelector("h1")
+                h1.prepend(div)
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <button onclick="partB()">bigger</button>
+        <p id="bigger"></p>
+    </body>
+    <script>
+        bigger = function (n1, n2, n3)  {
+            if(n1>=n2&& n1>=n3)
+                return n1;
+            else if(n2>=n1&& n2>=n3)
+                return n2;
+            return n3;
+        }
+        function partB(){
+            let answer = bigger(3,5,9)
+            document.getElementById("bigger").innerText ="The bigger is  :" + answer
+        }
+    </script>
+</html>

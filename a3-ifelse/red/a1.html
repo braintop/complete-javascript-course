@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <h1>if else </h1>
+   Enter a number : <br>
+   <input type="text" id="num1"><br/>
+   <input type="text" id="num2"><br/>
+   <button onclick="check()">check</button>
+   <script>
+       function check()
+       {
+           var num1=parseInt(document.getElementById("num1").value);
+           var num2=parseInt(document.getElementById("num2").value);
+           if (num1 > num2)
+           {
+               alert(num1);
+           }
+           else
+               alert(num2);
+       }  
+   </script>
+   </body>
+</html>
+  

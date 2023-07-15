@@ -1,0 +1,19 @@
+<html>
+    <body>
+
+        <script>
+            let countUsers = function(){
+                let count = 0;
+                return function(){
+                    count++;
+                    console.log(`there is ${count} users`)
+                };
+            }
+           users = countUsers()
+           users()
+           users()
+           users()
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+   <head>
+       <title>document title</title>
+   </head>
+       <body>
+           <div class="main-nav">
+               <a href="#a1">link a1</a>
+               <a href="#a2">link a2</a>
+               <a href="#a3">link a3</a>
+           </div>
+           <div class="post-content">
+               <p>first paragraph</p>
+               <p>second paragraph</p>
+               <p>third paragraph</p>
+           </div>
+       </body>
+   <script>
+      console.log(document.querySelector(".main-nav a"));//only first a element
+      var arr = document.querySelectorAll(".post-content p");//array of all paragraphs
+      console.log(arr[0]);//first paragraph
+   </script>
+</html>
+  

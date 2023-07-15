@@ -1,0 +1,19 @@
+<html>
+<body>
+   <h1>Add 5 numbers to array</h1>
+   <button onclick="addNumbersToArray()">Add 5 numbers</button>
+   <p id="numbers"></p>
+   <script>
+       function addNumbersToArray(){
+           arr = []
+           for(var i=0;i<5;i++){
+               var n = prompt("print num ")
+               arr.push(n);
+           }
+           for(var i=0;i<arr.length;i++){
+            document.getElementById("numbers").append(arr[i] + ",")
+           }
+       }
+   </script>
+</body>
+</html>

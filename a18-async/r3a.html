@@ -1,0 +1,21 @@
+<html>
+   <body>
+       <input type="text" id="country">
+       <button onclick="getCountry()">get country</button>
+       <img src="" id="flag">
+       <script>
+           //old way.still exist
+           let getCountry = function details() {
+              let country = document.getElementById("country").value
+              let req =  new XMLHttpRequest();
+              //do it in background
+              req.open('GET', 'https://restcountries.com/v2/name/' + country)
+              req.send()
+              req.addEventListener('load',function(){
+                   console.log(this.responseText)
+              })
+            }
+       </script>
+   </body>
+</html>
+

@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <h1>More ways to attached events</h1>
+        <p id="e1">My name is e1</h1>
+        <p id="e2">My name is e2</h1>
+        <script>
+        let e1 = document.getElementById("e1")
+        let e2 = document.getElementById("e2")
+
+        e1.addEventListener('mouseenter', function(e){
+            alert("Hi, mouse enter to e1")
+        })
+        e2.onmouseenter = function(e){
+            alert("Hi, mouse enter to e2")
+        }
+        </script>
+    </body>
+</html>

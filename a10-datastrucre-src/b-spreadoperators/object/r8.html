@@ -1,0 +1,39 @@
+<html>
+    <body>
+        <script>
+        let shift = {
+        shiftId: '1',
+        workPlace: 'L.A',
+        workers: [],
+        start:"",
+        end:"",
+        // ES6 enhanced object literals
+        startShift(startTime = '8:00' ) {
+            console.log(`Shift started! ${startTime}`);
+        },
+        endShift(endTime = '0:00' ) {
+            console.log(`Shift started! ${startTime}`);
+        },
+        workerForShift(w1, w2, w3) {
+            console.log(
+            `Worker at first shift ${w1}, ${w2} and ${w3}`
+            );
+        }
+        };
+        // Objects
+        let newShift = { Country: "England", ...shift, shiftManager: 'Beker' };
+        console.log(newShift);
+        let shiftCopy = { ...newShift };
+        shiftCopy.workers = ['Mad','Sharon'];
+        console.log(shiftCopy.workers);
+        console.log(shiftCopy.shiftId);
+        shiftCopy.startShift("10:00")
+        
+        let arrWorkers = [prompt("print first worker"),
+                  prompt("print first worker"),
+                  prompt("print first worker")]
+
+        shiftCopy.workerForShift(...arrWorkers)
+        </script>
+    </body>
+</html>

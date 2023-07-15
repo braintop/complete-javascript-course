@@ -1,0 +1,56 @@
+<html>
+    <body>
+        <input type="text" id="country">
+        <button onclick="getCountry()">promise</button>
+        <div class="flags"></div>    
+        
+        <script>
+        let renderCountry = function (data) {
+            let html =`
+                    <div>
+                        <img width="200" height="100" src="${data.flag}" />
+                        <p id="country">${data.flag}</p>
+                        <p id="region">${data.region}</p>
+                        <p id="population">${data.population}</p>
+                        <p id="language">${data.languages[0].name}</p>
+                        <p id="currency">${data.currencies[0].name}</p>
+                    </div>
+            `
+            let div = document.querySelector(".flags")
+            div.insertAdjacentHTML('beforeend', html)
+            div.style.opacity = 1
+        }
+        let getCountry = function (){
+            let name = document.getElementById('country').value
+            let req = fetch(`https://restcountries.com/v2/name/${name}`)
+            .then(response=>{
+                console.log(response)
+                if(!response.ok){
+                    throw new Error('please fill country')
+                    //immediatelty reject the promise
+                    //go to the catch 
+                }
+                return response.json()
+            })
+            .then(data =>{
+                renderCountry(data[0]);
+                //country 2 
+                return fetch(`https://restcountries.com/v2/name/Israel`)
+            })
+            .then(response=>response.json())
+            .then(data=>renderCountry(data[0]))
+            .catch(err=>alert(err))
+            .finally(()=>{
+                console.log("finally")
+                //than call back called when fulfiiled 
+                //catch call back called when rejected
+                //finally always be called with the promise.
+                //when ever if the callback is fulfilled or rejected the finally callback
+                //will  always called
+                //finally is good place to call a spinner that waiting for loading data 
+            })
+        }
+
+        </script>
+    </body>
+</html>

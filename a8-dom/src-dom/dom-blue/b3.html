@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background: tomato;
+            }
+            ul {
+                list-style-type: none;
+            }
+        </style>
+    </head>
+
+<body>
+    <h1>Create List of Images</h1>
+<p>Write in textbox name of image and load it.
+you can select from the list below :</p> 
+<ol class="txtList">
+    <li>poop.png</li>
+    <li>sea.png</li>
+    <li>smile.png</li>
+    <li>star.png</li>
+    <li>sad.png</li>
+</ol>
+<input type="text" id="name">
+<button class="add" onclick="add()">Add picture</button>
+ <ul id="list">
+ </ul>
+<script>
+    function add(){
+        let val = document.getElementById("name").value;
+        let img = document.createElement("img")
+        img.src = val; 
+        let ul = document.getElementById("list")
+        let li = document.createElement("li")
+        li.appendChild(img)
+        ul.append(li)
+        document.getElementById("name").value = ""
+    }
+</script>
+
+</body>
+</html>

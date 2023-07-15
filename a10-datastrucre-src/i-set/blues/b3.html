@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <button onclick="f()">print 5 names</button>
+        <script>
+// Receive from the user 5 names using a prompt
+// and alert if the user print Mike
+
+            function f(){
+                let s = new Set()
+                for(let i=0;i<5;i++){
+                    let name = prompt("print name "+ i)
+                    s.add(name)
+                }
+                alert(s.has("Mike"))
+            }
+        </script>
+    </body>
+</html>

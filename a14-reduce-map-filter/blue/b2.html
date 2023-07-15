@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <script>
+            let cars = [
+                {color:"red",price:2000,benefits:["electric windows","glossy paint" ]},
+                {color:"blue",price:4500,benefits:["electric windows","modern tires", ]},
+                {color:"pink",price:5000,benefits:["electric windows","modern tires","glossy paint" ]},
+                {color:"white",price:7800,benefits:["electric windows", ]},
+            ]
+            function isBelowThan2000(element, index, array) {
+            return element.price < 2000;
+            }
+            console.log(cars.every(isBelowThan2000));  // false
+        </script>
+    </body>
+</html>

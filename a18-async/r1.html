@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <p id="details"></p>
+        <button onclick="details()">click</button>
+        <script>
+            function details() {
+            let p = document.getElementById("details")
+            //asynchronous 
+            //the main code is not blocked 
+            setTimeout(function() {
+                p.innerText="Asaf"
+            }, 3000);
+            p.style.background="blue"
+        }
+        </script>
+    </body>
+</html>

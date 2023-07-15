@@ -1,0 +1,31 @@
+<!DOCTYPE html><html>
+    <body>
+      <h1>Sum, Average and  above 1000</h1>
+      <button onclick="salaries()">Sum, Average and  above 1000</button>
+      <p id="sum"></p>
+      <p id="average"></p>
+      <p id="above1000"></p>
+      <script>
+          function salaries(){
+              var sum = 0;
+              var average = 0;
+              var countAbove1000= 0;
+              for(var i=0;i<5;i++){
+                  var n = prompt("print num ")
+                  n = parseInt(n)
+                  sum = sum + n
+                  if(n > 1000)
+                       countAbove1000++;
+              }
+              average = sum/5;
+              document.getElementById("sum").innerText = sum
+              document.getElementById("average").innerText = average
+              document.getElementById("above1000").innerText = countAbove1000
+          }
+      </script>
+    </body>
+    </html>
+    
+    
+    
+    

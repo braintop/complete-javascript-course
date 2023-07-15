@@ -1,0 +1,29 @@
+<html>
+    <head><style>
+        .red{
+            color: teal;
+        }
+        .teal{
+            background: tomato;
+        }
+    </style></head>
+    <body>
+        <h1>classList</h1>
+        <button onclick="addClasses()">Add classes</button>    
+        <button onclick="removeClasses()">remove classes</button>        
+        <script>
+            function addClasses(){
+                let h1 = document.querySelector("h1")
+                h1.classList.add('red', 'teal');
+            }
+            function removeClasses(){
+                let h1 = document.querySelector("h1")
+                h1.classList.remove('red', 'teal');
+            }
+            // logo.classList.add('a','b','c')
+            // logo.classList.remove('a','b','c')
+            // logo.classList.toggle()
+            // logo.classList.contains()
+        </script>
+    </body>
+</html>

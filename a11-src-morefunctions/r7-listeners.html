@@ -1,0 +1,33 @@
+<html>
+    <body>
+        <button class="buy">Buy book 🟩</button>
+        <script>
+            let  course= {
+            name: '',
+            books:0,
+            description: '',
+            students:[],
+            addStudents(studentName){
+                    this.students.push(studentName)
+                    console.log(`${studentName} added to ${this.name} course`)
+            },
+            date: '12/12/2021'
+            };
+            let english = {
+                name:"english course",
+                description:"this is good",
+                students:[],
+                books:0 
+            }
+            english.buyCourse = function(){
+                console.log(this)
+                this.books++
+                console.log(this.books)
+            }
+
+            //document.querySelector('.buy').addEventListener('click', english.buyCourse)
+            document.querySelector('.buy').addEventListener('click', english.buyCourse.bind(english))
+
+        </script>
+    </body>
+</html>

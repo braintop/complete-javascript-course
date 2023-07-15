@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <script>
+            //Cloning and merging Maps
+            // Just like Arrays, Maps can be cloned:
+            const original = new Map([
+            [1, 'one']
+            ])
+
+            const clone = new Map(original)
+
+            console.log(clone.get(1))       // one
+            console.log(original === clone) // false (useful for shallow comparison)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+   <body>
+       <button onclick="mult()">print 2 numbers</button>
+       <p id="myp"></p> 
+       <script>
+           function mult(){
+               var n1 = prompt("print first number")
+               var n2 = prompt("print second number")
+               var sol = parseInt(n1)*parseInt(n2)
+               alert(sol)
+               document.getElementById("myp").innerText=sol
+           }
+       </script>
+   </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <button onclick="f()">print your name</button>
+        <script>
+            // Receive from the user a first name using a prompt
+            //  and alert how many different letters there are in his first name.
+
+            function f(){
+                let name = prompt("print you first name")
+                let s = new Set(name)
+                alert(s.size)
+            }
+        </script>
+    </body>
+</html>

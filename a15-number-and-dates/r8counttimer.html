@@ -1,0 +1,15 @@
+<html>
+    <body>
+        <h1>count timer </h1>
+        <p id="timer">0</p>
+        <script>
+            function counting(){
+                let time = document.getElementById("timer").innerText;
+                time = Number(time)
+                time++
+                document.getElementById("timer").innerText = time
+            }
+            setInterval(counting,1000)
+        </script>
+    </body>
+</html>

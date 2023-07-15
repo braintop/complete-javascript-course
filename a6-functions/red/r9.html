@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <button onclick="partB()">is num in array</button>
+        <p id="exist"></p>
+    </body>
+    <script>
+        let isNumInArray= (arr, num) =>  {
+                if(arr.indexOf(num)>=0)
+                    return true;
+                return false    
+        }
+        function partB(){
+            let arr = [1,6,2,9]
+            let answer = isNumInArray(arr,22)
+            document.getElementById("exist").innerText ="is 2 in array :" + answer
+        }
+    </script>
+</html>

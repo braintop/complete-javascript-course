@@ -1,0 +1,32 @@
+<html>
+    <body>
+        <script>
+// Prototypes are the mechanism by which JavaScript objects
+// inherit features from one another.
+// we will explain how prototype chains
+// work and look at how the prototype property
+// can be used to add methods to existing constructors.
+
+//Understanding prototype objects
+//In this example, we have defined a constructor function, like so:
+    function Person(first, last, age, gender, interests) {
+        // property and method definitions
+        this.name = {
+        'first': first,
+        'last' : last
+        };
+        this.age = age;
+        this.gender = gender;
+        //...
+    }
+let person1 = new Person('Bob', 'Smith', 32, 'male', ['music', 'skiing']);
+//If you type "person1." into your JavaScript console,
+// you should see the browser try to auto-complete this
+// with the member names available on this object:
+
+
+
+
+        </script>
+    </body>
+</html>

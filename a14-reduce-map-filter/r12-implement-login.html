@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <form>
+            <input type="text" id="username" placeholder="username">
+            <input type="password" id="password" placeholder="password">
+            <input type="submit" value="submit" class="btnLogin">
+        </form>
+        <script>
+            let curretnAccount;
+            let users = [
+                {username:"asaf",password:123},
+                {username:"mike",password:456},
+                {username:"lisa",password:789}
+            ]
+            function login(event){
+                event.preventDefault()
+                inputUsername = document.getElementById("username").value
+                inputPassword = document.getElementById("password").value
+                console.log(inputPassword,inputUsername)
+                curretnAccount=users.find(
+                 acc => acc.username==inputUsername && acc.password==inputPassword)
+                console.log(curretnAccount)
+
+                //display ui message - welcome
+                //display movement 
+                //display balance 
+                //display summary 
+            }
+            let btnLogin = document.querySelector(".btnLogin")
+            btnLogin.addEventListener('click',login)
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <script>
+            /* 
+1. Loop over the restaurant.tipped array and print each worker name to the console)
+2. Use a loop to print all address properties  
+*/
+            const days = [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thuesday",
+                "friday",
+                "saturday",
+                "sunday",
+            ];
+            let restaurant = {
+                timeShift1: "8:00-16:00",
+                timeShift2: "16:00-00:00",
+                shiftsWorkers: [
+                    ["Mike", "James", "John", "Michael", "William", "David"],
+                    [
+                        "Joseph",
+                        "Thomas",
+                        "Charles",
+                        "Christopher",
+                        "Daniel",
+                        "Mark",
+                    ],
+                ],
+                totalTipShift1: 4000,
+                totalTipShift2: 5000,
+                tipped: ["Mike", "James", "Michael", "David", "Thomas"],
+                date: "12/12/2021",
+                address: { city: "NY", street: "Arguban 6" },
+                opendays: [days[0], days[3], days[4]],
+            };
+            // 1.
+            console.log("===========1===========");
+
+            const tipped = restaurant.tipped;
+            for (const [i, el] of restaurant.tipped.entries())
+                console.log(`${i + 1}. ${el}`);
+            console.log("===========2===========");
+            // 2.
+            const properties = Object.keys(restaurant.address);
+            for (const [i, el] of properties.entries())
+                console.log(`${i + 1}. ${el}`);
+        </script>
+    </body>
+</html>

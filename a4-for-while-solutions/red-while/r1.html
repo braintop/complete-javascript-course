@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+   <h1>for loops</h1>
+   <button onclick="test2()">count even</button>
+   <p id="count"></p>
+   <script>
+       function test2(){
+           var counter = 0;
+           for(var i=0;i<4;i++){
+               var n = prompt("print num ")
+               n = parseInt(n)
+               if(n % 2 == 0){
+                   counter++;
+               }
+           }
+           document.getElementById("count").innerText = counter
+       }
+   </script>
+</body>
+</html>
+

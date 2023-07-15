@@ -1,0 +1,16 @@
+<html>
+    <body>
+        <script>
+            let words = ['one', 'two', 'three', 'four']
+            words.forEach(function(word) {
+            console.log(word)
+            if (word === 'two') {
+                words.shift() //'one' will delete from array
+            }
+            }) // one // two // four
+
+            console.log(words);  //['two', 'three', 'four']
+
+        </script>
+    </body>
+</html>

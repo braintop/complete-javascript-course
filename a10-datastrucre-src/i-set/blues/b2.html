@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <button onclick="f()">print 10 numbers</button>
+        <script>
+// Receive from the user 10 numbers using a prompt
+//  and alert how many different numbers the users print.
+
+            function f(){
+                let s = new Set()
+                for(let i=0;i<10;i++){
+                    let num = parseInt(prompt("print num " + i))
+                    s.add(num)
+                }
+                alert(s.size)
+            }
+        </script>
+    </body>
+</html>

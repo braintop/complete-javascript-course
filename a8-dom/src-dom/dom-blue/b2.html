@@ -1,0 +1,26 @@
+<html>
+  <body>
+      <h1>index is odd  🟥 or even 🟩</p>
+      <button onclick="evenOrOdd()">index is odd  🟥 or even 🟩</button>
+      <ul id="items">
+          <li>1</li>
+          <li>208</li>
+          <li>99</li>
+          <li>100</li>
+          <li>101</li>
+      </ul>
+      <script>
+          function evenOrOdd(){
+           var list = document.querySelectorAll('#items li');
+           for(var i=0; li=list[i]; i++) {
+               if(i%2==1)
+                    li.style.color = "red"
+               else 
+                    li.style.color = "green"
+           }
+          }
+      </script>
+  </body>  
+</html>
+
+

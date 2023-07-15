@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <button onclick="solution6()">solution6</button>
+        <script>
+            function solution6(){
+                var num = parseInt(prompt("print num"))
+                min = num;
+                index = 0;
+                var i=1;
+                while(i<9){
+                    num = parseInt(prompt("print num"))
+                    if(num <= min){
+                        min = num
+                        index =i;
+                    }
+                    i+=1
+                }
+                console.log(index)
+            }
+        </script>
+</body>
+</html>

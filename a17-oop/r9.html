@@ -1,0 +1,61 @@
+<html>
+    <body>
+        <script>
+            class Person{
+                constructor(first, last, age, gender, interests) {
+                this.name = {
+                    first,
+                    last
+                };
+                this.age = age;
+                this.gender = gender;
+                this.interests = interests;
+                }
+            }
+
+//             Getters and Setters
+// There may be times when we want to change the values of properties in the classes we create,
+// or times when we don't know what the final value of a particular property will be.
+// Using the Teacher example, we may not know what subject the teacher will teach
+// before we create them, or their subject may change between terms.
+
+// We can handle such situations with getters and setters.
+
+// Let's enhance the Teacher class with getters and setters.
+// The class starts the same as it was the last time we looked at it.
+
+// Getters and setters work in pairs. 
+// A getter returns the current value of the variable and its corresponding
+// setter changes the value of the variable to the one it defines.
+
+        class Teacher extends Person {
+        constructor(first, last, age, gender, interests, subject, grade) {
+            super(first, last, age, gender, interests);
+            // subject and grade are specific to Teacher
+            this._subject = subject;
+            this.grade = grade;
+        }
+        get subject() {
+            return this._subject;
+        }
+        set subject(newSubject) {
+            this._subject = newSubject;
+        }
+        }
+// To show the current value of the _subject property of the snape object
+// we can use the snape.subject getter method.
+// To assign a new value to the _subject property we can use the
+// snape.subject="new value" setter method.
+// The example below shows the two features in action:
+
+// Check the default value
+console.log(snape.subject) // Returns "Dark arts"
+
+// Change the value
+snape.subject = "Balloon animals" // Sets _subject to "Balloon animals"
+
+// Check it again and see if it matches the new value
+console.log(snape.subject) // Returns "Balloon animals"
+        </script>
+    </body>
+</html>

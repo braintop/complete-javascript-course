@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <input type="text" id="country">
+        <button onclick='getCountry(document.getElementById("country").value)'>promise</button>
+        <div class="flags"></div>    
+        
+        <script>
+        let renderCountry = function (data) {
+            let html =`
+                    <div>
+                        <img width="200" height="100" src="${data.flag}" />
+                        <p id="country">${data.flag}</p>
+                        <p id="region">${data.region}</p>
+                        <p id="population">${data.population}</p>
+                        <p id="language">${data.languages[0].name}</p>
+                        <p id="currency">${data.currencies[0].name}</p>
+                    </div>
+            `
+            let div = document.querySelector(".flags")
+            div.insertAdjacentHTML('beforeend', html)
+            div.style.opacity = 1
+        }
+        let getCountry = function (name){
+            let req = fetch(`https://restcountries.com/v2/name/${name}`)
+            .then(response=>response.json())
+            .then(data =>{
+                renderCountry(data[0]);
+                //country 2 
+                return fetch(`https://restcountries.com/v2/name/Israel`)
+            })
+            .then(response=>response.json())
+            .then(data=>renderCountry(data[0]))
+        }
+        getCountry('usa')
+        </script>
+    </body>
+</html>

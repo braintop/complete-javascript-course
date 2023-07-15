@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+   <body>
+    <h1>Exercise1</h1>
+    <button onclick="clicki()"><b>click me</b></button>
+       <div id="details">1</div>
+       <script>
+           function clicki(){
+            var num1 = parseInt( prompt("print number 1") )
+            var num2 = parseInt( prompt("print number 1") )
+            var num3 = parseInt( prompt("print number 1") )
+
+            if(num1 == num2 && num2==num3) {
+                document.getElementById("details").style.color = "blue";
+            } 
+            else{
+                document.getElementById("details").style.color = "red";
+            }
+            document.getElementById("details").innerHTML=num1;
+           }
+       </script>
+   </body>
+</html>

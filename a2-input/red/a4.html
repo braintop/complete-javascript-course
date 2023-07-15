@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+   <body>
+       <button onclick="details()">print city and country</button>
+       <p id="myp"></p>
+       <script>
+           function details(){
+               var city = prompt("print your city")
+               var country = prompt("print your country")
+               var final = "city : " + city + " , county: " + country
+               alert(final)
+               document.getElementById("myp").innerText = final
+           }
+       </script>
+   </body>
+</html>

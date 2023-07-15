@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Shift</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      textarea, select{
+        display: block;
+        height: 50px;
+        width: 102%;
+        padding: 0.375 rem 0.75 rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1 px solid #ced4da;
+        border-radius: 0.25 rem;
+        margin: 20px 0px;
+        border-width: 2px;
+        border-style: inset;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+      }
+	 #loading{
+		position: fixed;
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+	 }
+    </style>
+  </head>
+  <body>
+	<div id="loading">
+		<div class="loader"></div>
+	</div>
+	<header>
+    <nav id="navbar" class="">
+      <div class="nav-wrapper">
+      <div class="logo">
+        <a href="#home"><img src="images/logo.png"></a>
+      </div>
+
+      <ul id="menu">
+		<li><a href="editprofile.html">Edit profile</a></li>
+		<li><a href="home.html">Shifts</a></li>
+		<li><a href="addshift.html">Add Shift</a></li>
+      </ul>
+      </div>
+    </nav>
+
+
+    <div class="menuIcon">
+      <span class="icon icon-bars"></span>
+      <span class="icon icon-bars overlay"></span>
+    </div>
+
+
+    <div class="overlay-menu">
+      <ul id="menu">
+        <li><a href="editprofile.html">Edit profile</a></li>
+		<li><a href="home.html">Shifts</a></li>
+		<li><a href="addshift.html">Add Shift</a></li>
+      </ul>
+    </div>
+  </header>
+    
+
+    <div class="container">
+      <div class="heading">
+        <h1>ADD SHIFT</h1>
+      </div>
+      <div class="row">
+        <div class="box padding w-50 mobochange">
+          <h2 class="bold center">ADD SHIFT</h2>
+          <form action="#" id="loginform"  onSubmit="return save()">  
+            <input type="Date" required id="date" name="DateShift" placeholder="Date Shift">
+            <input type="time" required id="Start-time" name="Starttime" placeholder="Start time">
+            <input type="time" required id="End-time" name="Endtime" placeholder="End time">
+            <input type="text" required id="Hourly-wage" name="Hourlywage" placeholder="Hourly wage">
+            <input type="text" required id="Workplace" name="Workplace" placeholder="Workplace">
+            <input type="text" required id="Shift-slug" name="Shiftslug" placeholder="Shift slug">
+            <textarea id="Comments" name="Comments" size="20" type="text" required style=" height: 100px;width: 100%;"></textarea>
+            <input type="submit" value="SAVE">
+           </form>
+        </div>
+      </div>
+    </div>
+
+
+
+	<script>
+
+    let menuIcon = document.querySelector('.menuIcon');
+        let nav = document.querySelector('.overlay-menu');
+
+        menuIcon.addEventListener('click', () => {
+            if (nav.style.transform != 'translateX(0%)') {
+                nav.style.transform = 'translateX(0%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            } else { 
+                nav.style.transform = 'translateX(-100%)';
+                nav.style.transition = 'transform 0.2s ease-out';
+            }
+        });
+
+        let toggleIcon = document.querySelector('.menuIcon');
+
+        toggleIcon.addEventListener('click', () => {
+            if (toggleIcon.className != 'menuIcon toggle') {
+                toggleIcon.className += ' toggle';
+            } else {
+                toggleIcon.className = 'menuIcon';
+            }
+        });
+		
+var url_string = window.location.href;
+var url = new URL(url_string);
+var slug = url.searchParams.get("slug");
+
+if(slug !== null){
+	var allshifts = JSON.parse(localStorage.getItem("shifts"));
+	for (var key in allshifts) {
+		if(allshifts[key][5] == slug){
+		   document.getElementById("date").value = allshifts[key][0];
+		   document.getElementById("Start-time").value = allshifts[key][1];
+		   document.getElementById("End-time").value = allshifts[key][2];
+		   document.getElementById("Hourly-wage").value = allshifts[key][3];
+		   document.getElementById("Workplace").value = allshifts[key][4];
+		   document.getElementById("Shift-slug").value = allshifts[key][5];
+		   document.getElementById("Comments").value = allshifts[key][6];
+		}
+	}
+}
+
+
+		
+		
+     function save(){
+	   document.getElementById("loading").style.display = "flex";
+		setTimeout(function(){
+			
+			if(slug !== null){
+			   var allshifts = JSON.parse(localStorage.getItem("shifts"));
+			   var date = document.getElementById("date").value;
+			   var Starttime = document.getElementById("Start-time").value;
+			   var Endtime = document.getElementById("End-time").value;
+			   var Hourlywage = document.getElementById("Hourly-wage").value;
+			   var Workplace = document.getElementById("Workplace").value;
+			   var Comments = document.getElementById("Comments").value;
+				
+				
+				for (var key in allshifts) {
+					if(allshifts[key][5] == slug){
+						allshifts[key][0] = date;
+						allshifts[key][1] = Starttime;
+						allshifts[key][2] = Endtime;
+						allshifts[key][3] = Hourlywage;
+						allshifts[key][4] = Workplace;
+						allshifts[key][6] = Comments;
+					}
+				}
+				localStorage.setItem("shifts", JSON.stringify(allshifts));
+				<!-- var storedNames = JSON.parse(localStorage.getItem("shifts")); -->
+				window.location.replace("home.html");
+			}else{
+			   var allshifts = JSON.parse(localStorage.getItem("shifts"));
+			   var date = document.getElementById("date").value;
+			   var Starttime = document.getElementById("Start-time").value;
+			   var Endtime = document.getElementById("End-time").value;
+			   var Hourlywage = document.getElementById("Hourly-wage").value;
+			   var Workplace = document.getElementById("Workplace").value;
+			   var Shiftslug = document.getElementById("Shift-slug").value;
+			   var Comments = document.getElementById("Comments").value;
+				
+				
+				for (var key in allshifts) {
+					if(allshifts[key][5] == Shiftslug){
+						alert("Please Enter uniq Shift slug");
+						document.getElementById("loading").style.display = "none";
+						return false;
+					}
+				}
+				
+				var shifts = [];
+				shifts[0] = date;
+				shifts[1] = Starttime;
+				shifts[2] = Endtime;
+				shifts[3] = Hourlywage;
+				shifts[4] = Workplace;
+				shifts[5] = Shiftslug;
+				shifts[6] = Comments;
+				if(allshifts === null){
+					allshifts = [];	
+				}
+				allshifts.push(shifts);
+				localStorage.setItem("shifts", JSON.stringify(allshifts));
+				<!-- var storedNames = JSON.parse(localStorage.getItem("shifts")); -->
+				 window.location.replace("home.html");
+			}
+		   
+		}, 2000);
+       return false;
+     }
+
+	</script>
+  </body>
+</html>

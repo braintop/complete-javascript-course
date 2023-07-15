@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <script>
+            console.log(90===90.0)//true 
+            console.log(Number('125'))//125 
+            console.log(+'125')//125 
+            console.log(Number.parseInt('50px'))//50
+            console.log(Number.parseFloat('2.5'))//2
+            console.log(Number.parseFloat('5.4'))//5.4
+            console.log("========Number.isNaN37==========")
+            console.log(Number.isNaN(20))//false 
+            console.log(Number.isNaN("23"))//false
+            console.log(Number.isNaN(4/0))//false  
+            console.log("========isFinite==========")
+            console.log(Number.isFinite(20))//true 
+            console.log(Number.isFinite("23"))//false
+            console.log(Number.isFinite(4/0))//false
+            console.log("=======isInteger==========")
+            console.log(Number.isInteger(30))//true
+            console.log(Number.isInteger(30.0))//true
+            console.log(Number.isInteger(30/0))//false
+
+
+        </script>
+    </body>
+</html>

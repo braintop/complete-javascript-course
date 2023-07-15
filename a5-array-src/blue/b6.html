@@ -1,0 +1,24 @@
+<html>
+<body>
+   <h1>Add 5 numbers to array</h1>
+   <button onclick="addNumbersToArray()">Add 5 numbers</button>
+   <p id="max"></p>
+   <script>
+       function addNumbersToArray(){
+           arr = []
+           for(let i=0;i<5;i++){
+               var n = prompt("print num ")
+               arr.push(n);
+           }
+           console.log(arr)
+           max = arr[0];
+           for(let i=0;i<arr.length;i++){
+               if(arr[i] > max)
+                 max = arr[i]
+           }
+           document.getElementById("max").innerText = "max number is " + max 
+
+       }
+   </script>
+</body>
+</html>

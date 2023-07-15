@@ -1,0 +1,25 @@
+<html>
+  <body>
+      <h1>Remove Name 🤖</p>
+      <input type="text" id="name" placeholder="remove name">  
+      <button onclick="removeNames()">Remove Name</button>
+      <ul id="items">
+          <li>Mike</li>
+          <li>David</li>
+          <li>Suzan</li>
+      </ul>
+      <script>
+          function removeNames(){
+           var list = document.querySelectorAll('#items li');
+           let name = document.getElementById("name").value;
+           for(var i=0; li=list[i]; i++) {
+               console.log(li.innerText + " | " + name)
+               if(li.innerText == name)
+                    li.parentNode.removeChild(li);
+           }
+          }
+      </script>
+  </body>  
+</html>
+
+

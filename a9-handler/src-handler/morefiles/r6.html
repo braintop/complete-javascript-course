@@ -1,0 +1,21 @@
+<html>
+   <head>
+   <title>getElementById / getElementsByTagName</title>
+   </head>
+       <body>
+           <ul id="navlinks">
+               <li>first</li>
+               <li>second</li>
+           </ul>
+       </body>
+   <script>
+       var element=document.getElementById("navlinks");
+       var myLiItems=document.getElementsByTagName("li"); //return array
+       console.log("node type :",element.nodeType);//1
+       console.log("innerHtml is ",myLiItems.innerHtml);//undefiend
+       console.log("we have : ",myLiItems.length);//2
+       console.log("we have : ",myLiItems[0].innerText);//first
+       console.log("we have : ",myLiItems[1].innerText);//second
+  </script>
+</html>
+  

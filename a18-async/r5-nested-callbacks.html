@@ -1,0 +1,52 @@
+<html>
+    <body>
+
+        <input type="text" id="country">
+        <button onclick="getCountryOnclick()">get country</button>
+        <div class="flags"></div>    
+        <script>
+            //old way.still exist 
+            let renderCountry = function (data) {
+                console.log(data)
+
+                let html =`
+                        <div>
+                            <img width="200" height="100" src="${data.flag}" />
+                            <p id="country">${data.flag}</p>
+                            <p id="region">${data.region}</p>
+                            <p id="population">${data.population}</p>
+                            <p id="language">${data.languages[0].name}</p>
+                            <p id="currency">${data.currencies[0].name}</p>
+                        </div>
+
+                `
+               let div = document.querySelector(".flags")
+               div.insertAdjacentHTML('beforeend', html)
+               div.style.opacity = 1
+        }
+
+        function getCountryOnclick(){
+            let country = document.getElementById("country").value 
+            let req =  new XMLHttpRequest();
+               req.open('GET', 'https://restcountries.com/v2/name/' + country)
+               req.send()
+               req.addEventListener('load', function(){
+                let [data] = JSON.parse(this.responseText)
+                renderCountry(data)
+
+                let [borders] = data.borders 
+                if(!borders) return 
+                let req2 =  new XMLHttpRequest();
+                req2.open('GET', 'https://restcountries.com/v2/name/Israel')
+                req2.send()
+                req2.addEventListener('load', function(){
+                    let [data2] = JSON.parse(this.responseText)
+                    console.log(data2)
+                    renderCountry(data2)
+                });
+            });
+
+        }
+        </script>
+    </body>
+</html>

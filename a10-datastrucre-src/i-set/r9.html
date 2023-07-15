@@ -1,0 +1,27 @@
+<html>
+    <body>
+        <script>
+            let names=new Set(["Mike","Suzi","Suzi"])
+            console.log("names:" + names)//"Mike","Suzi"
+            console.log("size : " + names.size)
+            console.log(names.has('Mike'))//true
+            console.log(names.has('Lisa'))//false 
+            names.add('Rivka')
+            names.add('Rivka')
+            console.log("names:" + names)//Mike,Suzi,Rivka
+            names.delete("Mike")
+            //names.clear()
+            for(let name of names)
+                console.log(name) // Mike Rivka
+            arrNames = [...names]//convert set to array 
+            console.log("arrNames:" + arrNames)
+            console.log(new Set('asaf'))//a,s,f : how many differnt letter in string 
+
+            //summary : set are not inended to replace array. 
+            // its : if u need a strucure of unique valuse 
+
+
+
+        </script>
+    </body>
+</html>
