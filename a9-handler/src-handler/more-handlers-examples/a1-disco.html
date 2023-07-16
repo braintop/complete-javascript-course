@@ -13,7 +13,9 @@
         <script>
             const btnAdd = document.querySelector(".buttonAdd");
             const btnRemove = document.querySelector(".buttonRemove");
-
+            const fname = "oren";
+            const age = "dodo";
+            const final = `my name is ${fname} and i am ${age} years old`;
             function random(number) {
                 return Math.floor(Math.random() * (number + 1));
             }
@@ -21,10 +23,16 @@
                 const rndCol = `rgb(${random(255)}, ${random(255)}, ${random(
                     255
                 )})`;
-                document.body.style.backgroundColor = rndCol;
+                document.body.style.backgroundColor = rndCol; // "rgb(1,2,3)"
             }
             btnAdd.addEventListener("click", randomColor);
-            //btnRemove.removeEventListener("click", randomColor);
+            function removeListeners() {
+                document
+                    .querySelector(".buttonAdd")
+                    .removeEventListener("click", randomColor);
+            }
+
+            btnRemove.addEventListener("click", removeListeners);
         </script>
     </body>
 </html>

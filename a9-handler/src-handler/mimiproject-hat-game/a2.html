@@ -102,7 +102,7 @@
             function selectRandomImage() {
                 document.querySelector(".countQuestion").textContent =
                     "Question number " + (counter + 1);
-                let index = Math.floor((Math.random() * 10) % 3);
+                let index = Math.floor((Math.random() * 10) % 3); //random number 0-2
                 document.getElementById("imgToGuess").src = arr[index];
                 return index;
             }
