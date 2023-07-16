@@ -1,26 +1,32 @@
 <html>
     <body>
         <script>
-        // Unpacking fields from objects passed as a function parameter
+            // Unpacking fields from objects passed as a function parameter
 
-        const user = {
-        id: 30,
-        displayName: 'Raz',
-        fullName: {
-            firstName: 'Mike',
-            lastName: 'Laris'
-        }
-        };
-        function userId({id}) {
-        return id;
-        }
+            const user = {
+                id: 30,
+                displayName: "Raz",
+                fullName: {
+                    firstName: "Mike",
+                    lastName: "Laris",
+                },
+            };
 
-        function whois({displayName, fullName: {firstName: name}}) {
-        return `${displayName} is ${name}`;
-        }
+            function userId({ id }) {
+                return id;
+            }
+            function userId2(id) {
+                return id;
+            }
 
-        console.log(userId(user)); // 30
-        console.log(whois(user));  // "Raz is Mike"
+            function whois({ displayName, fullName: { firstName: name } }) {
+                return `${displayName} is ${name}`;
+            }
+
+            console.log(userId(user)); // 30
+            console.log(userId2(user.id)); // 30
+
+            console.log(whois(user)); // "Raz is Mike"
         </script>
     </body>
 </html>
