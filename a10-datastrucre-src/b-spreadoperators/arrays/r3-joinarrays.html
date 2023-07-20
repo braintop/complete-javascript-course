@@ -1,10 +1,14 @@
 <html>
     <body>
         <script>
-            let arr1 = [1,2,3]
-            let arr2 = [4,5,6]
+            let arr1 = [1, 2, 3];
+            let arr2 = [4, 5, 6];
+            let arrays = [arr1, arr2]; //arrays in array [[1,2,3],[4,5,6]]
+            console.log(arrays[0][2]); //3
             // Join 2 arrays
-            let arrJoin = [...arr1, ...arr2];
+            let arrJoin = [...arr1, ...arr2]; //copy of arrays[1,2,3,4,5,6]
+            arr1[1] = 1000; //change arrays because not copy
+            console.log(arrays);
             console.log(arrJoin);
         </script>
     </body>

@@ -18,6 +18,9 @@
             function userId2(id) {
                 return id;
             }
+            function getFirstName({ fullName }) {
+                return fullName.firstName;
+            }
 
             function whois({ displayName, fullName: { firstName: name } }) {
                 return `${displayName} is ${name}`;
@@ -25,6 +28,7 @@
 
             console.log(userId(user)); // 30
             console.log(userId2(user.id)); // 30
+            console.log(getFirstName(user)); // oren
 
             console.log(whois(user)); // "Raz is Mike"
         </script>

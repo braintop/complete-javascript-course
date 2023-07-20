@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let restaurant = {
+                timeShift1: "8:00-16:00",
+                timeShift2: "16:00-00:00",
+                shiftsWorkers: [
+                    ["Mike", "James", "John", "Michael", "William", "David"],
+                    [
+                        "Joseph",
+                        "Thomas",
+                        "Charles",
+                        "Christopher",
+                        "Daniel",
+                        "Mark",
+                    ],
+                ],
+                totalTipShift1: 4000,
+                totalTipShift2: 5000,
+                tipped: ["Mike", "James", "Michael", "David", "Thomas"],
+                date: "12/12/2021",
+            };
+            //========================sol1==========
+            console.log("========================sol1==========");
+
+            let [w1, w2] = [
+                restaurant.shiftsWorkers[0], //mike,jj,kkk,lll
+                restaurant.shiftsWorkers[1],
+            ];
+            let all1 = [...w1, ...w2];
+            console.log(all1);
+            //========================sol2==========
+            console.log("========================sol2==========");
+            let all2 = [
+                ...restaurant.shiftsWorkers[0],
+                ...restaurant.shiftsWorkers[1],
+            ];
+            console.log(all2);
+            //========================sol3==========
+            console.log("========================sol3==========");
+            let w5 = [...restaurant.shiftsWorkers[0]];
+            let w6 = [...restaurant.shiftsWorkers[1]];
+            let all3 = [...w5, ...w6];
+            console.log(all3);
+            //==================sol4- think why its not work=
+            console.log("========================sol4==========");
+
+            let [w7, w8] = [
+                ...restaurant.shiftsWorkers[0], //mike,jj,kkk,lll
+                ...restaurant.shiftsWorkers[1],
+            ];
+            let all4 = [w7, w8];
+            console.log(all4);
+        </script>
+    </body>
+</html>
