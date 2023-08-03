@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="id"></p>
+
+        <p id="email"></p>
+
+        <p id="name"></p>
+        <script>
+            //https://jsonplaceholder1.typicode.com/users
+            //get all users from the url and log all users to the console
+            async function getPromiseUsers() {
+                let url = "https://jsonplaceholder.typicode.com/users";
+                let users = await fetch(url);
+                return users.json();
+            }
+            async function displayUsers() {
+                try {
+                    let users = await getPromiseUsers();
+                    document.getElementById("id").innerText = users[0].id;
+                } catch (error) {
+                    console.error("Error", error);
+                }
+            }
+            displayUsers();
+            //let x = await displayUsers();// error
+        </script>
+    </body>
+</html>

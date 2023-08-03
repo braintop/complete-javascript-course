@@ -1,12 +1,28 @@
 <html>
     <body>
         <script>
-            const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+            const words = [
+                "spray",
+                "limit",
+                "elite",
+                "exuberant",
+                "destruction",
+                "present",
+            ];
 
-            const result = words.filter(word => word.length > 6);
+            const result = words.filter((word) => word.length > 6);
 
             console.log(result);
             // expected output: Array ["exuberant", "destruction", "present"]
+
+            // let copy=[]
+            // for(let i=0;i<words.length;i++){
+            //     if(words[i].length>6)
+            //     {
+            //         copy.push(words[i])
+            //     }
+
+            // }
         </script>
     </body>
 </html>

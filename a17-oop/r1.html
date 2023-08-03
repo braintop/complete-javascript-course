@@ -2,19 +2,19 @@
     <body>
         <script>
             function createNewPerson(name) {
-            const obj = {};
-            obj.name = name;
-            obj.greeting = function() {
-                alert('Hi! I\'m ' + obj.name + '.');
-            };
-            return obj;
+                const obj = {};
+                obj.name = name;
+                obj.greeting = function () {
+                    alert("Hi! I'm " + obj.name + ".");
+                };
+                return obj;
             }
 
-            const salva = createNewPerson('Salva');
+            const salva = createNewPerson("Salva");
             salva.name;
             salva.greeting();
-            // This works well enough, but it is a bit long-winded; 
-            // if we know we want to create an object, 
+            // This works well enough, but it is a bit long-winded;
+            // if we know we want to create an object,
             // why do we need to explicitly
             // create a new empty object and return it?
         </script>

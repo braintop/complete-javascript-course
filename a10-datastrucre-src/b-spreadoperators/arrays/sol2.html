@@ -1,6 +1,12 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
     <body>
-        <h1>Looping Array</h1>
         <script>
             let restaurant = {
                 timeShift1: "8:00-16:00",
@@ -20,9 +26,16 @@
                 totalTipShift2: 5000,
                 tipped: ["Mike", "James", "Michael", "David", "Thomas"],
                 date: "12/12/2021",
-                address: { city: "NY", street: "Arguban 6" },
             };
-            console.log(restaurant.address.city); //NY
+
+            let [sm, ...arr] = restaurant.shiftsWorkers[0];
+            console.log(sm);
+            console.log(arr);
+
+            let allworkers = [
+                ...restaurant.shiftsWorkers[0],
+                ...restaurant.shiftsWorkers[1],
+            ];
         </script>
     </body>
 </html>

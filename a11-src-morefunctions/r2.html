@@ -1,20 +1,26 @@
 <html>
     <body>
         <script>
-            function add(n1, n2){
-            console.log(n1+n2);
+            function add(n1, n2) {
+                console.log(n1 + n2);
             }
-            function sub(n1, n2){
-            console.log(n1-n2);
+            function sub(n1, n2) {
+                console.log(n1 - n2);
             }
-            function mult(n1, n2){
-            console.log(n1*n2);
+            function mult(n1, n2) {
+                console.log(n1 * n2);
             }
-            function f(n1, n2, callback, callback2){
-            callback(n1,n2);
-            callback2(n1,3);
+            function divide(n1, n2) {
+                console.log(n1 / n2);
             }
-            f(5,6,mult,add);
+
+            function f(n1, n2, callback, callback2) {
+                callback(n1, n2);
+                callback2(n1, n2);
+            }
+            f(5, 6, mult, add); // 30, 11 (5+6)
+            f(2, 6, mult, sub);
+            f(2, 6, mult, divide);
         </script>
     </body>
 </html>

@@ -1,17 +1,18 @@
 <html>
     <body>
-        <p id="details"></p>
-        <button onclick="details()">click</button>
+        <p id="details">Hi</p>
+        <button onclick="details()">click and wait 3 seconds</button>
         <script>
             function details() {
-            let p = document.getElementById("details")
-            //asynchronous 
-            //the main code is not blocked 
-            setTimeout(function() {
-                p.innerText="Asaf"
-            }, 3000);
-            p.style.background="blue"
-        }
+                let p = document.getElementById("details");
+                //asynchronous
+                //the main code is not blocked
+                setTimeout(function () {
+                    p.innerText = "After 3 seconds :) ";
+                }, 10000);
+                p.style.background = "yellow";
+                console.log("I will log before oren:) its async");
+            }
         </script>
     </body>
 </html>

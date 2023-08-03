@@ -1,18 +1,30 @@
 <html>
-<body><h1>Await</h1></body>
-<script>
-    const delay = seconds => {
-    return new Promise(
-    resolve => setTimeout(resolve, seconds*1000)
-    )};
-    const countToFive = async() => {
-    console.log("one");
-    await delay(1);
-    console.log("Two");
-    await delay(1);
-    console.log("three");
-    await delay(1);
-    };
-countToFive();
-</script>
+    <body>
+        <h1>Await</h1>
+    </body>
+    <script>
+        const delay = (seconds) => {
+            return new Promise((resolve) =>
+                setTimeout(resolve, seconds * 1000)
+            );
+        };
+        const countToFive = async () => {
+            console.log("one");
+            await delay(1);
+            console.log("Two");
+            await delay(1);
+            console.log("three");
+            await delay(1);
+        };
+
+        // not work - Uncaught SyntaxError:
+        // await is only valid in async functions and the top level
+        // bodies of modules (at r16-await.html:19:9)
+        // 👆 await delay(1);
+
+        countToFive();
+        console.log(
+            "I am not waiting to countToFive function-waiting is only in async function"
+        ); //
+    </script>
 </html>

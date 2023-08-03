@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <script>
+            let numbers = [1, 4, 9];
+            let doubles = numbers
+                .map(function (num) {
+                    return num * 2; //2,8,18
+                })
+                .filter((item) => {
+                    return item > 5;
+                });
+            console.log(doubles);
+
+            // doubles is now   [2, 8, 18]
+            // numbers is still [1, 4, 9]
+        </script>
+    </body>
+</html>

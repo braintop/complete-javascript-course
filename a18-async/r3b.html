@@ -1,45 +1,44 @@
 <html>
     <body>
-        <input type="text" id="country">
+        <input type="text" id="country" />
         <button onclick="getCountryOnclick()">get country</button>
         <p id="country"></p>
         <p id="region"></p>
         <p id="population"></p>
         <p id="language"></p>
         <p id="currency"></p>
-        <img src="" id="flag">
-        
+        <img src="" id="flag" />
+
         <script>
-            //old way.still exist 
+            //old way.still exist
             let getCountry = function details(country) {
-               let req =  new XMLHttpRequest();
-               //do it in background
-               req.open('GET', 'https://restcountries.com/v2/name/' + country)
-               req.send()
-               req.addEventListener('load',function(){
+                let req = new XMLHttpRequest();
+                //do it in background
+                req.open("GET", "https://restcountries.com/v2/name/" + country);
+                req.send();
+                req.addEventListener("load", function () {
                     //console.log(this.responseText)
-                    let [data] = JSON.parse(this.responseText)
-                    console.log(data)
-                    let img = document.getElementById("flag")
-                    let country = document.getElementById("country")
-                    let region =  document.getElementById("region")
-                    let population =  document.getElementById("population")
-                    let currency =  document.getElementById("currency")
-                    let language =  document.getElementById("language")
+                    let [data] = JSON.parse(this.responseText);
+                    console.log(data);
+                    let img = document.getElementById("flag");
+                    let country = document.getElementById("country");
+                    let region = document.getElementById("region");
+                    let population = document.getElementById("population");
+                    let currency = document.getElementById("currency");
+                    let language = document.getElementById("language");
 
-                    img.src = data.flag; 
-                    country.innerText = "country:" + data.name
-                    region.innerText = "region:" + data.region
-                    population.innerText = "population:" + data.population
-                    currency.innerText = "currency:" + data.currencies[0].name
-                    language.innerText = "language:" + data.languages[0].name
-               });
-        }
-
-        function getCountryOnclick(){
-            let country = document.getElementById("country").value 
-            getCountry(country)
-        }
+                    img.src = data.flag;
+                    country.innerText = "country:" + data.name;
+                    region.innerText = "region:" + data.region;
+                    population.innerText = "population:" + data.population;
+                    currency.innerText = "currency:" + data.currencies[0].name;
+                    language.innerText = "language:" + data.languages[0].name;
+                });
+            };
+            function getCountryOnclick() {
+                let country = document.getElementById("country").value;
+                getCountry(country);
+            }
         </script>
     </body>
 </html>

@@ -2,9 +2,12 @@
     <body>
         <script>
             function magic() {
-                  return function calc(x) { return x * 42; };
+                return function calc(x) {
+                    return x * 42;
+                };
             }
-            var answer = magic();
+            //var answer = function calc(x) { return x * 42; }
+            var answer = magic(); //answer is function
             answer(1337); // 56154
         </script>
     </body>

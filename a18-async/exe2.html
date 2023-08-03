@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <p id="id"></p>
+
+        <p id="email"></p>
+
+        <p id="name"></p>
+        <script>
+            //https://jsonplaceholder1.typicode.com/users
+            //get all users from the url and log all users to the console
+            function getAllUsers() {
+                let url = "https://jsonplaceholder.typicode.com/users";
+
+                let promiseUsers = fetch(url)
+                    .then((response) => {
+                        return response.json(); // return to next then
+                    })
+                    .then((data) => {
+                        //display data
+                        return data; // return to promiseUsers
+                    })
+                    .then((a) => {
+                        return "bla";
+                    })
+                    .catch((err) => {
+                        throw new Error("error");
+                    });
+                console.log(promiseUsers);
+                promiseUsers.then((data) => {
+                    console.log(data);
+                });
+            }
+            getAllUsers(); // running async code
+        </script>
+    </body>
+</html>

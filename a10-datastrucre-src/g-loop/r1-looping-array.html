@@ -1,46 +1,47 @@
 <html>
     <body>
-        <script>
         <h1>Looping Array</h1>
-        let restaurant= {
-        timeShift1: '8:00-16:00',
-        timeShift2: '16:00-00:00',
-        shiftsWorkers: [
-            [
-            'Mike',
-            'James',
-            'John',
-            'Michael',
-            'William',
-            'David',
-            ],
-            [
-            'Joseph',
-            'Thomas',
-            'Charles',
-            'Christopher',
-            'Daniel',
-            'Mark',
-            ],
-        ],
-        totalTipShift1:4000,
-        totalTipShift2:5000,
-        tipped: ['Mike', 'James', 'Michael', 'David','Thomas'],
-        date: '12/12/2021'
-        };
-        const [a,b] = [...restaurant.shiftsWorkers];
-        const allWorkers = [...a, ...b]
-        console.log(allWorkers)
-        for(const item of allWorkers){
-            console.log(item)
-        }
-        for(const item of allWorkers.entries()){
-                console.log(item)
-        }
-        for(const [i,el] of allWorkers.entries()){
-                console.log(`${i+1}. ${el}`)
-        }
 
+        <script>
+            let restaurant = {
+                timeShift1: "8:00-16:00",
+                timeShift2: "16:00-00:00",
+                shiftsWorkers: [
+                    ["Mike", "James", "John", "Michael", "William", "David"],
+                    [
+                        "Joseph",
+                        "Thomas",
+                        "Charles",
+                        "Christopher",
+                        "Daniel",
+                        "Mark",
+                    ],
+                ],
+                totalTipShift1: 4000,
+                totalTipShift2: 5000,
+                tipped: ["Mike", "James", "Michael", "David", "Thomas"],
+                date: "12/12/2021",
+            };
+            const [a, b] = [...restaurant.shiftsWorkers];
+            const allWorkers = [...a, ...b];
+            console.log("------------1----------");
+            console.log(allWorkers);
+            console.log("------------2----------");
+            for (let i = 0; i < allWorkers.length; i++) {
+                console.log(allWorkers[i]);
+            }
+            console.log("------------3----------");
+            for (const item of allWorkers) {
+                console.log(item);
+            }
+            console.log("------------4----------");
+            for (const item of allWorkers.entries()) {
+                console.log(item);
+            }
+            console.log("------------5----------");
+            for (const [i, el] of allWorkers.entries()) {
+                console.log(`${i + 1}. ${el}`);
+            }
         </script>
     </body>
 </html>

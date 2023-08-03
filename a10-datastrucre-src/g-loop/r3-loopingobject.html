@@ -2,42 +2,45 @@
     <body>
         <h1>Looping Array</h1>
         <script>
-        const days = ['monday', 'tuesday', 'wednesday', 'thuesday', 'friday', 'saturday', 'sunday'];
-        let restaurant= {
-        timeShift1: '8:00-16:00',
-        timeShift2: '16:00-00:00',
-        shiftsWorkers: [
-            [
-            'Mike',
-            'James',
-            'John',
-            'Michael',
-            'William',
-            'David',
-            ],
-            [
-            'Joseph',
-            'Thomas',
-            'Charles',
-            'Christopher',
-            'Daniel',
-            'Mark',
-            ],
-        ],
-        totalTipShift1:4000,
-        totalTipShift2:5000,
-        tipped: ['Mike', 'James', 'Michael', 'David','Thomas'],
-        date: '12/12/2021',
-        address:{city:"NY",street:"Arguban 6"},
-        opendays :[days[0],days[3],days[4]]
-            
-        };
+            const days = [
+                "monday",
+                "tuesday",
+                "wednesday",
+                "thuesday",
+                "friday",
+                "saturday",
+                "sunday",
+            ];
+            let restaurant = {
+                timeShift1: "8:00-16:00",
+                timeShift2: "16:00-00:00",
+                shiftsWorkers: [
+                    ["Mike", "James", "John", "Michael", "William", "David"],
+                    [
+                        "Joseph",
+                        "Thomas",
+                        "Charles",
+                        "Christopher",
+                        "Daniel",
+                        "Mark",
+                    ],
+                ],
+                totalTipShift1: 4000,
+                totalTipShift2: 5000,
+                tipped: ["Mike", "James", "Michael", "David", "Thomas"],
+                date: "12/12/2021",
+                address: { city: "NY", street: "Arguban 6" },
+                opendays: [days[0], days[3], days[4]],
+            };
 
-        const properties = Object.keys(restaurant)
-            console.log(properties)
-        for(let day of Object.values(restaurant.opendays)){
-            console.log(day)
-        }
+            const properties = Object.keys(restaurant);
+            console.log(properties);
+            const values = Object.values(restaurant);
+            console.log(values);
+
+            for (let day of Object.values(restaurant.opendays)) {
+                console.log(day);
+            }
         </script>
     </body>
 </html>

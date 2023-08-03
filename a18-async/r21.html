@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Authors</h1>
+        <ul id="authors"></ul>
+        <button onclick="loadData()">load data</button>
+        <script>
+            async function loadData() {
+                console.log("hi-1");
+                await loadUsers();
+                console.log("hi-2");
+            }
+            async function loadUsers() {
+                const promises = [];
+                promises.push(
+                    fetch("https://jsonplaceholder.typicode.com/users/1").then(
+                        (res) => res.json()
+                    )
+                );
+                promises.push(
+                    fetch("https://jsonplaceholder.typicode.com/users/2").then(
+                        (res) => res.json()
+                    )
+                );
+                promises.push(
+                    fetch("https://jsonplaceholder.typicode.com/users/3").then(
+                        (res) => res.json()
+                    )
+                );
+                Promise.all(promises).then(([user1, user2, user3]) => {
+                    console.log("user1:", user1);
+                    console.log("user2:", user2);
+                    console.log("user3:", user3);
+                });
+            }
+        </script>
+    </body>
+</html>

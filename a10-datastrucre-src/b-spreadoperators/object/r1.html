@@ -13,18 +13,22 @@
             console.log(obj1);
             console.log(clonedObj);
 
-            let mergedObj = { ...obj1, ...obj2 };
-            // Object { foo: "baz", x: 42, y: 13 }
+            let mergedObj1 = { obj1, obj2 };
+            // Object { {foo: "bar", x: 42}, {foo:baz,y: 13} }
+
+            let mergedObj2 = { ...obj1, ...obj2 };
+            // Object { foo: "baz", x: 42, y: 13 }//override foo
 
             let updateObj = { ...obj1, x: 100 };
-            // Object { foo: "baz", x: 100 }
-            let PropertyToObjNoUpdateUpdate = { x: 200, ...obj1 };
+            // Object { foo: "baz", x: 100 } - x is ovveride
+            let PropertyToObjNoUpdateUpdate = { x: 200, ...obj1 }; //האחרון הוא המעדכן
             //x still 42 because the obj1 override it
             // Object { foo: "baz", x: 42 }
 
             let addNewPropertyToObj = { ...obj1, y: 100 };
             // Object { foo: "baz", x: 42, y: 100 }
             let addNewPropertyToObjAndUpdate = { ...obj1, x: 200, y: 100 };
+
             // Object { foo: "baz", x: 200, y: 100 }
         </script>
     </body>

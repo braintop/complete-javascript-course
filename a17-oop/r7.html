@@ -5,58 +5,61 @@
             // ECMAScript 2015 introduces class syntax to JavaScript
             // as a way to write reusable classes using easier,
             // cleaner syntax, which is more similar to classes in C++ or Java.
-            // In this section we'll convert the Person and Teacher examples from 
+            // In this section we'll convert the Person and Teacher examples from
             // prototypal inheritance to classes, to show you how it's done.
-            
+
             //Let's look at a rewritten version of the Person example, class-style:
             class Person {
-            constructor(first, last, age, gender, interests) {
-                this.name = {
-                first,
-                last
-                };
-                this.age = age;
-                this.gender = gender;
-                this.interests = interests;
-            }
+                constructor(first, last, age, gender, interests) {
+                    this.name = {
+                        first,
+                        last,
+                    };
+                    this.age = age;
+                    this.gender = gender;
+                    this.interests = interests;
+                }
 
-            greeting() {
-                console.log(`Hi! I'm ${this.name.first}`);
-            };
+                greeting() {
+                    console.log(`Hi! I'm ${this.name.first}`);
+                }
 
-            farewell() {
-                console.log(`${this.name.first} has left the building. Bye for now!`);
-            };
+                farewell() {
+                    console.log(
+                        `${this.name.first} has left the building. Bye for now!`
+                    );
+                }
             }
             // The class statement indicates that we are creating a new class. Inside this block, we define all the features of the class:
             // The constructor() method defines the constructor function that represents our Person class.
-            // greeting() and farewell() are class methods. Any methods you want associated with the class are defined inside it, after the constructor. In this example, 
+            // greeting() and farewell() are class methods. Any methods you want associated with the class are defined inside it, after the constructor. In this example,
             // we've used template literals rather than string concatenation to make the code easier to read.
             // We can now instantiate object instances using the new operator, in just the same way as we did before:
-            let han = new Person('Han', 'Solo', 25, 'male', ['Smuggling']);
+            let han = new Person("Han", "Solo", 25, "male", ["Smuggling"]);
             han.greeting();
             // Hi! I'm Han
 
-            let leia = new Person('Leia', 'Organa', 19, 'female', ['Government']);
+            let leia = new Person("Leia", "Organa", 19, "female", [
+                "Government",
+            ]);
             leia.farewell();
             // Leia has left the building. Bye for now
-            
+
             // Inheritance with class syntax
             // Above we created a class to represent a person.
             // They have a series of properties that are common to all people;
-            // in this section we'll create our specialized Teacher class, 
-            // making it inherit from Person using modern class syntax. 
+            // in this section we'll create our specialized Teacher class,
+            // making it inherit from Person using modern class syntax.
             // This is called creating a subclass or subclassing.
             // To create a subclass we use the extends keyword to
             // tell JavaScript the class we want to base our class on,
             class Teacher extends Person {
-            constructor(subject, grade) {
-                super(); // Now 'this' is initialized by calling the parent constructor.
-                this.subject = subject;
-                this.grade = grade;
+                constructor(subject, grade) {
+                    super(); // Now 'this' is initialized by calling the parent constructor.
+                    this.subject = subject;
+                    this.grade = grade;
                 }
             }
-
         </script>
     </body>
 </html>

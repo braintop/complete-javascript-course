@@ -1,17 +1,20 @@
 <html>
     <body>
         <script>
-            const items = ['item1', 'item2', 'item3']
-            const copyItems = []
+            const items = ["item1", "item2", "item3"];
+            const copyItems = [];
             // before
             for (let i = 0; i < items.length; i++) {
-            copyItems.push(items[i])
+                copyItems.push(items[i]);
             }
 
+            function f(item) {
+                console.log(item);
+            }
             // after
-            items.forEach(function(item){
-            copyItems.push(item)
-            })
+            items.forEach(function (item) {
+                copyItems.push(item);
+            });
         </script>
     </body>
 </html>

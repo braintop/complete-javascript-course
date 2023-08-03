@@ -49,14 +49,20 @@
             let w6 = [...restaurant.shiftsWorkers[1]];
             let all3 = [...w5, ...w6];
             console.log(all3);
-            //==================sol4- think why its not work=
+            //====sol4- think why its not work=
             console.log("========================sol4==========");
 
             let [w7, w8] = [
-                ...restaurant.shiftsWorkers[0], //mike,jj,kkk,lll
+                ...restaurant.shiftsWorkers[0], //mike,....
                 ...restaurant.shiftsWorkers[1],
-            ];
-            let all4 = [w7, w8];
+            ];//                         "Joseph",
+                        "Thomas",
+                        "Charles",
+                        "Christopher",
+                        "Daniel",
+                        "Mark",
+
+            let all4 = [w7, w8];//mike , james
             console.log(all4);
         </script>
     </body>

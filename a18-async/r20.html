@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Authors</h1>
+        <ul id="authors"></ul>
+        <button onclick="loadData()">load data</button>
+        <script>
+            async function loadData() {
+                console.log("hi-1");
+                await loadUsers();
+                console.log("hi-2");
+            }
+            async function loadUsers() {
+                const ul = document.getElementById("authors");
+                const url = "https://jsonplaceholder.typicode.com/users";
+
+                await fetch(url)
+                    .then((response) => {
+                        return response.json();
+                    })
+                    .then((data) => {
+                        let authors = data;
+                        console.log(data);
+                        authors.map(function (author) {
+                            let li = document.createElement("li");
+                            let name = document.createElement("h2");
+                            let email = document.createElement("span");
+
+                            name.innerHTML = `${author.name}`;
+                            email.innerHTML = `${author.email}`;
+
+                            li.appendChild(name);
+                            li.appendChild(email);
+
+                            ul.appendChild(li);
+                        });
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
+        </script>
+    </body>
+</html>
