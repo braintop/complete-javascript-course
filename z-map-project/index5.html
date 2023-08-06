@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Phase 1-https://leafletjs.com/</title>
+        <style>
+            body {
+                margin: 0px;
+                box-sizing: border-box;
+                height: 100vh;
+            }
+            .main {
+                height: 100vh;
+
+                display: flex;
+                flex-direction: row;
+                /* trbl=top right bottom left */
+                padding: 2% 2% 2% 2%;
+            }
+            .left {
+                display: flex;
+                flex-direction: column;
+                border: 5px solid gray;
+                background-color: midnightblue;
+                width: 30%;
+                align-items: center;
+            }
+            .right {
+                border: 5px solid gray;
+                width: 70%;
+                background-color: gray;
+            }
+            .green {
+                color: chartreuse;
+            }
+        </style>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+            crossorigin=""
+        />
+        <script
+            defer
+            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""
+        ></script>
+    </head>
+    <body>
+        <div class="main">
+            <div class="left">
+                <p id="coords"></p>
+                <div>
+                    <h1 class="green">Friends Places</h1>
+                </div>
+                <div class="list">
+                    <ul class="green">
+                        <li>My Location</li>
+                        <li>🇮🇱 Israel</li>
+                        <li>🇺🇸 Usa</li>
+                        <li>🇩🇪 Germany</li>
+                    </ul>
+                </div>
+                <div>
+                    <form>
+                        <input
+                            type="text"
+                            id="fullname"
+                            placeholder="fullname"
+                        />
+                        <input type="text" id="address" placeholder="address" />
+                    </form>
+                </div>
+                <div>
+                    <h1 class="green">My Friends address</h1>
+                    <div>
+                        <!-- dynamic list from firebase</p> -->
+                        <ul id="mylist" class="green"></ul>
+                    </div>
+                </div>
+            </div>
+            <div id="map" class="right"></div>
+        </div>
+        <script>
+            let map;
+            let fullname = document.getElementById("fullname");
+            let address = document.getElementById("fullname");
+            let markers = [];
+
+            navigator.geolocation.getCurrentPosition(
+                function (position) {
+                    console.log(position);
+                    let { latitude, longitude } = position.coords;
+                    let url = `https://www.google.com/maps/place/Tel+Aviv-Yafo/@${latitude},${longitude}`;
+                    console.log(url);
+                    //add map
+                    map = L.map("map").setView([latitude, longitude], 13);
+                    L.tileLayer(
+                        "https://tile.openstreetmap.fr/hot/{z}/{x}/{y}.png",
+                        {
+                            attribution:
+                                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                        }
+                    ).addTo(map);
+                    map.on("click", function (mapEvent) {
+                        console.log(mapEvent);
+                        const { lat, lng } = mapEvent.latlng;
+                        addMarker(lat, lng, fullname.value);
+                        close(); //add li item
+                    });
+                    L.marker([latitude, longitude])
+                        .addTo(map)
+                        .bindPopup(
+                            "A pretty CSS3 popup.<br> Easily customizable."
+                        )
+                        .openPopup();
+                },
+                function () {
+                    alert("couldn get your position");
+                }
+            );
+            //function to add marker
+            function addMarker(lat, lng, name) {
+                const marker = L.marker([lat, lng]).addTo(map);
+                marker.bindPopup(name);
+                markers.push({ marker: marker, fullname: name });
+                console.log(markers);
+            }
+            function close() {
+                //1.add li item to id=mylist
+                let list = document.getElementById("mylist");
+                let listItem = document.createElement("li");
+                let listLength = list.children.length + 1;
+                let currentFullName = fullname.value;
+                listItem.textContent = listLength + ":" + fullname.value;
+                list.appendChild(listItem);
+                //2. add event item
+                listItem.addEventListener("click", () => {
+                    const markerItem = markers.find((item) => {
+                        return item.fullname == currentFullName;
+                    });
+                    const { marker } = markerItem; //{marker:, x:1, y:2,getLatLng:getLatLng }
+                    map.panTo(marker.getLatLng());
+                    marker.openPopup();
+                });
+            }
+        </script>
+    </body>
+</html>
