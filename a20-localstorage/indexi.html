@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="text" id="firstname" />
+        <input type="text" id="lastname" />
+        <button onclick="save()">save</button>
+        <button onclick="getFullName()">get full name</button>
+        <p id="fullname"></p>
+        <script>
+            function save() {
+                let obj = {
+                    firstname: document.getElementById("firstname").value,
+                    lastname: document.getElementById("lastname").value,
+                };
+                let strname = JSON.stringify(obj);
+                localStorage.setItem("fullname", strname);
+            }
+            function getFullName() {
+                let fullname = localStorage.getItem("fullname");
+                fullname = JSON.parse(fullname); //full name is string
+                console.log(fullname);
+                let p = document.getElementById("fullname");
+                p.innerText = fullname.firstname + " " + fullname.lastname;
+            }
+        </script>
+    </body>
+</html>
